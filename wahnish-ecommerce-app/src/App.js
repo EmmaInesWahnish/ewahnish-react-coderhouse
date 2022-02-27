@@ -5,7 +5,7 @@ import FoodDelivery from './components/FoodDelivery.jsx';
 import FooterInfo from './components/FooterInfo.jsx';
 import ItemListContainer from './components/ItemListContainer.jsx';
 function App() {
-   let saludo = "Hola! Bienvenidos a nuestro delivery de comidas internacionales."
+   let saludo = "Bienvenidos!! Conozca nuestro delivery de comidas internacionales."
    return (
       <body>
          <header>
