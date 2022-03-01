@@ -21,10 +21,10 @@ const NavBar=() => {
           </ul>
         </li>
         <li id="itemLista01" className="dropdown asBody"><a className="dropdown-toggle asBody" data-toggle="dropdown">Postres</a>
-          <ul id="lista2" className="dropdown-menu asBody">
-            <li id="itemlista20"><a className="nav-link asBody" id="internationalBreakfasts">Europeos</a></li>
-            <li id="itemlista21"><a className="nav-link asBody" id="breakfastsForChildren">Americanos</a></li>
-            <li id="itemlista22"><a className="nav-link asBody" id="allBreakfasts">Todos</a></li>
+          <ul id="lista3" className="dropdown-menu asBody">
+            <li id="itemlista30"><a className="nav-link asBody" id="internationalDesserts">Europeos</a></li>
+            <li id="itemlista31"><a className="nav-link asBody" id="americanDesserts">Americanos</a></li>
+            <li id="itemlista32"><a className="nav-link asBody" id="allDesserts">Todos</a></li>
           </ul>
         </li>
         <li className="nav-link asBody">
