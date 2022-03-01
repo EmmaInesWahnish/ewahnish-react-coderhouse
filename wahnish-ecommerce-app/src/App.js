@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar.jsx';
 import FoodDelivery from './components/FoodDelivery.jsx';
 import FooterInfo from './components/FooterInfo.jsx';
-import ItemListContainer from './components/ItemListContainer.jsx';
+import ItemListContainer from './Container/ItemListContainer.jsx';
 function App() {
    let saludo = "Bienvenidos!! Conozcan nuestro delivery de comidas internacionales."
    return (

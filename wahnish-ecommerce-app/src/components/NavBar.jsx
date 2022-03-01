@@ -28,7 +28,7 @@ const NavBar=() => {
           </ul>
         </li>
         <li className="nav-link asBody">
-          <a className="nav-link asBody" id="confirmar"><CartWidget /></a>
+          <a className="nav-link asBody ml-0" id="confirmar"><CartWidget /></a>
         </li>
       </ul>
     </nav>
