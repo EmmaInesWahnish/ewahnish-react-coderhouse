@@ -44,8 +44,15 @@
 
 .logo {
   color:darkblue;
-  font-size:2em;
+  font-size:2.5em;
 }
+
+.cart {
+  color:darkblue;
+  font-size:1.5em;
+}
+
+.pointer {cursor: pointer;}
 
 .select2-selection__rendered {
   line-height: auto !important;

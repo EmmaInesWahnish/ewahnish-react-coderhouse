@@ -5,7 +5,7 @@ const FooterInfo=()=> {
         <p>Autor: Emma Ines Wahnish</p>
         <p>
             Soporte:
-            <a href="mailto:helpdesk@groovinads.com">helpdesk@groovinads.com</a>
+            <a className="pointer" href="mailto:helpdesk@groovinads.com">helpdesk@groovinads.com</a>
         </p>
     </footer>
     );
