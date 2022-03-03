@@ -14,7 +14,7 @@ const ItemCard = ({ item }) => {
       <div className="card-body centrar">
         <ItemCount item={item} />
       </div>
-      <div className="card-footer centrar m-0 p-0">
+      <div className="card-footer centrar">
         <h3>Pedidos: Todos los dias</h3>
         <h3>de 08:00 a 22:00 horas</h3>
       </div>
