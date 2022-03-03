@@ -2,10 +2,10 @@ import '../App.css';
 import ItemCount from './ItemCount.jsx'
 const ItemCard = ({ item }) => {
   return (
-    <div className="card m-2 p-0 ">
+    <div key={item.id} className="card m-2 p-0 ">
       <div className="card-header centrar">
         <div>
-          <h3>{item.descripcion} p/porcion ${item.precio}</h3>
+          <h3>{item.descripcion} p/porcion {item.precio}$</h3>
         </div>
         <div className="image-size centrar">
           {item.imagen}

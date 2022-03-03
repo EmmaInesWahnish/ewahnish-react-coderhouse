@@ -51,7 +51,7 @@ const ItemCount = ({item}) => {
                 </button>
             </div>
             <div className="flex-container-text" style={{width:200}}><h3>Porciones restantes {thePortions}</h3></div>
-            <div className="flex-container-text" style={{width:200}}><h3>Importe Acumulado ${partialPrice}</h3></div>
+            <div className="flex-container-text" style={{width:200}}><h3>Importe Acumulado {partialPrice}$</h3></div>
         </div>)
 }
 
