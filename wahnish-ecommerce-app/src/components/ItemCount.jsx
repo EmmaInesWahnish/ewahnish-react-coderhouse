@@ -15,7 +15,7 @@ const ItemCount = ({item}) => {
         if (d > 0) {
             setCount((c) => c + 1);
             setPortion((d) => d - 1);
-            setPrice(() => p + Number(item.porciones));
+            setPrice(() => p + Number(item.precio));
         } else {
             alert("Ya no quedan porciones disponibles")
         }
@@ -25,7 +25,7 @@ const ItemCount = ({item}) => {
         if (c > 0) {
             setCount((c) => c - 1);
             setPortion((d) => d + 1);
-            setPrice(() => p - Number(item.porciones));
+            setPrice(() => p - Number(item.precio));
         } else {
             alert("Ya no quedan porciones de este item seleccionadas")
         }
@@ -33,7 +33,7 @@ const ItemCount = ({item}) => {
 
     return (
         <div className="flex-container-text centrar">
-            <div className="flex-container-buttons  p-0 m-0" style={{width:250}}>
+            <div className="flex-container-buttons  p-0 m-0" style={{width:200}}>
                 <button 
                     onClick={increment}
                     className="btn btn-oval btn-xs btn-light"><em className="fa fa-plus"></em></button>
@@ -43,15 +43,15 @@ const ItemCount = ({item}) => {
                     className="btn btn-oval btn-xs btn-light"><em className="fa fa-minus"></em></button>
             </div>
             <div className="lessWidth">
-                <button style={{width:250}}
+                <button style={{width:200}}
                     onClick={() => {
                       alert("Porciones agregadas al pedido")
                     }}
                     className="btn btn-primary"><em>Agregar al pedidp</em>
                 </button>
             </div>
-            <div className="flex-container-text" style={{width:250}}><h3>Porciones restantes {thePortions}</h3></div>
-            <div className="flex-container-text" style={{width:250}}><h3>Importe Acumulado {partialPrice}</h3></div>
+            <div className="flex-container-text" style={{width:200}}><h3>Porciones restantes {thePortions}</h3></div>
+            <div className="flex-container-text" style={{width:200}}><h3>Importe Acumulado ${partialPrice}</h3></div>
         </div>)
 }
 

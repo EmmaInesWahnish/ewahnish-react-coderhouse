@@ -8,8 +8,8 @@ import empanadas from '../assets/empanadas.png';
 import choripan from '../assets/choripan.png';
 import Item from './Item.jsx';
 
-const ItemList=()=> {
-    let platos = [
+const ItemList = () => {
+    const platos = [
         {
             id: "P000",
             tipo: "Platos",
@@ -23,7 +23,7 @@ const ItemList=()=> {
             id: "P001",
             tipo: "Platos",
             categoria: "Internacionales",
-            descripcion: "Choripan especial con Chimichurri",
+            descripcion: "Choripan con Chimichurri",
             imagen: <img src={choripan} alt="choripan" />,
             precio: 350,
             porciones: 100
@@ -44,7 +44,7 @@ const ItemList=()=> {
             descripcion: "Pierna de cordero rellena",
             imagen: <img src={cordero} alt="cazuela" />,
             precio: 500,
-            porciones:20
+            porciones: 20
         },
         {
             id: "P004",
@@ -59,10 +59,10 @@ const ItemList=()=> {
             id: "P005",
             tipo: "Platos",
             categoria: "Internacionales",
-            descripcion: "Locro tipico con ganado vacuno y porcino",
+            descripcion: "Locro con ganado vacuno y porcino",
             imagen: <img src={locro} alt="locro" />,
             precio: 450,
-            porciones:30
+            porciones: 30
         },
         {
             id: "P006",
@@ -76,10 +76,13 @@ const ItemList=()=> {
 
     ]
 
-    let item = platos[0];
-    return (<div className="centrar asBody">
-        <Item item = {item}/>
-    </div>);
+    const newItem = platos.map(function (platos) {
+        return (<div className="centrar asBody py-10">
+            <Item item={platos} />
+        </div>);
+    })
+
+    return newItem;
 }
 
 export default ItemList;

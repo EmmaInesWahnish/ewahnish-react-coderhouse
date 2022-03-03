@@ -151,6 +151,14 @@ h2 {
   text-align: center;
 } 
 
+.flex-container-card {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content:space-between;
+  text-align: center;
+} 
+
 .flex-container {
   display: flex;
   flex-wrap: nowrap;
@@ -170,7 +178,7 @@ h2 {
 
 .centrar {
   margin: auto;
-  max-width: 350px;
+  max-width: 300px;
 }
 
 th {
