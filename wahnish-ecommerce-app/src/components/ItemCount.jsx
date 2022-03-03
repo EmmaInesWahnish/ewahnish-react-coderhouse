@@ -27,7 +27,7 @@ const ItemCount = ({item}) => {
             setPortion((d) => d + 1);
             setPrice(() => p - Number(item.precio));
         } else {
-            alert("Ya no quedan porciones de este item seleccionadas")
+            alert("No hay porciones de este item en el pedido")
         }
     };
 

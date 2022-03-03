@@ -1,5 +1,5 @@
 import '../App.css';
-import AwaitData from '../components/AwaitData.jsx';
+import ItemList from '../components/ItemList.jsx';
 const ItemListContainer = ({ saludo }) => {
     saludo = "Bienvenidos!! Conozcan nuestros Platos Internacionales!!"
     return (
@@ -9,7 +9,7 @@ const ItemListContainer = ({ saludo }) => {
             </div>
             <div className="flex-container-card py-10">
                 <div className="flex-container-card">
-                    <AwaitData />
+                    <ItemList />
                 </div>
             </div>
         </div>
