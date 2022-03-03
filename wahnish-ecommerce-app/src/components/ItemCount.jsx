@@ -1,19 +1,21 @@
 import { useState } from "react";
 import '../App.css';
 
-const ItemCount = ({order, portions, portionPrice}) => {
-    let initialPrice = order * portionPrice;
+const ItemCount = ({item}) => {
+    let order = 0;
+    let initialPrice = Number(order) * Number(item.precio);
     const [quantity, setCount] = useState(Number(order));
-    const [thePortions, setPortion] = useState(Number(portions));
+    const [thePortions, setPortion] = useState(Number(item.porciones));
     const [partialPrice, setPrice] = useState(Number(initialPrice));
     let c = quantity;
     let d = thePortions;
+    let p = partialPrice;
     
     const increment = () => {
         if (d > 0) {
             setCount((c) => c + 1);
             setPortion((d) => d - 1);
-            setPrice((p) => p + portionPrice);
+            setPrice(() => p + Number(item.porciones));
         } else {
             alert("Ya no quedan porciones disponibles")
         }
@@ -23,20 +25,20 @@ const ItemCount = ({order, portions, portionPrice}) => {
         if (c > 0) {
             setCount((c) => c - 1);
             setPortion((d) => d + 1);
-            setPrice((p) => p - portionPrice);
+            setPrice(() => p - Number(item.porciones));
         } else {
             alert("Ya no quedan porciones de este item seleccionadas")
         }
     };
 
     return (
-        <div className="flex-container-text">
+        <div className="flex-container-text centrar">
             <div className="flex-container-buttons  p-0 m-0" style={{width:250}}>
-                <button class="p-0 m-0"
+                <button 
                     onClick={increment}
                     className="btn btn-oval btn-xs btn-light"><em className="fa fa-plus"></em></button>
                 <div className="flex-item">{quantity}</div>
-                <button class="p-0 m-0"
+                <button 
                     onClick={decrement}
                     className="btn btn-oval btn-xs btn-light"><em className="fa fa-minus"></em></button>
             </div>
@@ -48,8 +50,8 @@ const ItemCount = ({order, portions, portionPrice}) => {
                     className="btn btn-primary"><em>Agregar al pedidp</em>
                 </button>
             </div>
-            <div className="flex-container-text" style={{width:250}}>Porciones restantes {thePortions}</div>
-            <div className="flex-container-text" style={{width:250}}>Importe Acumulado {partialPrice}</div>
+            <div className="flex-container-text" style={{width:250}}><h3>Porciones restantes {thePortions}</h3></div>
+            <div className="flex-container-text" style={{width:250}}><h3>Importe Acumulado {partialPrice}</h3></div>
         </div>)
 }
 
