@@ -38,21 +38,23 @@
 }
 
 .asBody {
-  color:darkblue;
-  font-size:1.06em;
+  color: darkblue;
+  font-size: 1.06em;
 }
 
 .logo {
-  color:darkblue;
-  font-size:2.5em;
+  color: darkblue;
+  font-size: 2.5em;
 }
 
 .cart {
-  color:darkblue;
-  font-size:1.5em;
+  color: darkblue;
+  font-size: 1.5em;
 }
 
-.pointer {cursor: pointer;}
+.pointer {
+  cursor: pointer;
+}
 
 .select2-selection__rendered {
   line-height: auto !important;
@@ -94,7 +96,7 @@
   background-color: #fefefe;
   margin: 5px;
   padding: auto;
-  border: 3px solid #2D85E5;
+  border: 3px solid #2d85e5;
   width: 100%;
   font-size: 1em;
 }
@@ -123,24 +125,27 @@
 }
 
 .item3 {
-display: block;
-font-size: 1em;
-margin: 0;
-padding: 1em;
-border: #12355B;
-font-family: trebuchet;
-color: lightslategray;
-/*background-image: linear-gradient(to right, rgba(45, 133, 229, 0), #dc3545); }*/
-background-image: linear-gradient(to right, rgba(45, 133, 229, 0), #ffc107); }
+  display: block;
+  font-size: 1em;
+  margin: 0;
+  padding: 1em;
+  border: #12355b;
+  font-family: trebuchet;
+  color: lightslategray;
+  /*background-image: linear-gradient(to right, rgba(45, 133, 229, 0), #dc3545); }*/
+  background-image: linear-gradient(to right, rgba(45, 133, 229, 0), #ffc107);
+}
 
 h1 {
-color: #ffc107;
-font-size: 2em;
-text-shadow: 2px 2px 5px grey; }
+  color: #ffc107;
+  font-size: 2em;
+  text-shadow: 2px 2px 5px grey;
+}
 
 h2 {
   color: orange;
-  font-size: 1.5em;}
+  font-size: 1.5em;
+}
 
 .flex-container-text {
   display: flex;
@@ -149,15 +154,15 @@ h2 {
   align-content: center;
   justify-items: center;
   text-align: center;
-} 
+}
 
 .flex-container-card {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-content:space-between;
+  align-content: space-between;
   text-align: center;
-} 
+}
 
 .flex-container {
   display: flex;
@@ -173,7 +178,7 @@ h2 {
 }
 
 .flex-item {
-  align-self:center;
+  align-self: center;
 }
 
 .centrar {
@@ -182,16 +187,65 @@ h2 {
 }
 
 th {
-  background-color:#ffc107 ;
-  color:darkblue;
+  background-color: #ffc107;
+  color: darkblue;
 }
 
 .lessWidth {
-  width:20%;
+  width: 20%;
 }
 
 .image-size {
   max-height: 150px;
-  width:auto;
+  width: auto;
   justify-content: center;
+}
+
+/*animación del spinner*/
+img#circle {
+  animation-name: iTurn;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes iTurn {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(36deg);
+  }
+  20% {
+    transform: rotate(72deg);
+  }
+  30% {
+    transform: rotate(108deg);
+  }
+  40% {
+    transform: rotate(144deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  60% {
+    transform: rotate(216deg);
+  }
+  70% {
+    transform: rotate(252deg);
+  }
+  80% {
+    transform: rotate(288deg);
+  }
+  90% {
+    transform: rotate(324deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  font-size: xx-large;
+  margin: auto;
+  max-width: 800px;
 }
