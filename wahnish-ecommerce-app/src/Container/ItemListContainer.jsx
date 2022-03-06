@@ -3,7 +3,7 @@ import '../App.css';
 import getFetch from '../helpers/getFetch.js';
 import ItemList from '../components/ItemList';
 import Greeting from '../components/Greeting.jsx';
-import circle from '../assets/circle.png'
+import Spinner from '../components/Spinner.jsx';
 
 const ItemListContainer = () => {
     const saludo = "Bienvenidos!! Conozcan nuestros platos Internacionales!!"
@@ -21,9 +21,7 @@ const ItemListContainer = () => {
     if (bool) {
         return (
             <div className="flex-container">
-                <div className="flex-item">
-                    <img id="circle" src={circle} alt="circle" />
-                </div>
+                <Spinner />
             </div>)
     } else {
         return (
