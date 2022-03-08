@@ -47,7 +47,7 @@ const ItemCount = ({item, order}) => {
                     onClick={() => {
                       alert("Porciones agregadas al pedido")
                     }}
-                    className="btn btn-primary"><em>Agregar al pedidp</em>
+                    className="btn btn-primary"><em>Agregar al pedido</em>
                 </button>
             </div>
             <div className="flex-container-text" style={{width:200}}><h3>Porciones restantes {thePortions}</h3></div>

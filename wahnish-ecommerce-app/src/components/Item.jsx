@@ -3,7 +3,7 @@ import ItemCount from './ItemCount.jsx'
 const ItemCard = ({ item }) => {
   let order = 1;
   return (
-    <div key={item.id} className="card m-2 p-0 ">
+    <div className="card m-2 p-0 ">
       <div className="card-header centrar">
         <div>
           <h3>{item.descripcion} p/porcion {item.precio}$</h3>
