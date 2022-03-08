@@ -1,11 +1,11 @@
 import { useState } from "react";
 import '../App.css';
 
-const ItemCount = ({item}) => {
-    let order = 0;
+const ItemCount = ({item, order}) => {
     let initialPrice = Number(order) * Number(item.precio);
+    let porcionesRestantes = Number(item.porciones) - Number(order)
     const [quantity, setCount] = useState(Number(order));
-    const [thePortions, setPortion] = useState(Number(item.porciones));
+    const [thePortions, setPortion] = useState(Number(porcionesRestantes));
     const [partialPrice, setPrice] = useState(Number(initialPrice));
     let c = quantity;
     let d = thePortions;

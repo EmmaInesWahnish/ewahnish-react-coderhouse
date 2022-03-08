@@ -1,6 +1,7 @@
 import '../App.css';
 import ItemCount from './ItemCount.jsx'
 const ItemCard = ({ item }) => {
+  let order = 1;
   return (
     <div key={item.id} className="card m-2 p-0 ">
       <div className="card-header centrar">
@@ -12,7 +13,7 @@ const ItemCard = ({ item }) => {
         </div>
       </div>
       <div className="card-body centrar">
-        <ItemCount item={item} />
+        <ItemCount item={item} order={order} />
       </div>
       <div className="card-footer centrar m-0 p-0">
         <h3>Pedidos: Todos los dias</h3>
