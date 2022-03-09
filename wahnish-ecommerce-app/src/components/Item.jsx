@@ -1,7 +1,7 @@
 import '../App.css';
 import ItemCount from './ItemCount.jsx'
 const ItemCard = ({ item }) => {
-  let order = 1;
+  let order = 0;
   return (
     <div className="card m-2 p-0 ">
       <div className="card-header centrar">
