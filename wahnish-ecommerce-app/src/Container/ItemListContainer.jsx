@@ -9,7 +9,6 @@ const ItemListContainer = () => {
     const saludo = "Bienvenidos!! Conozcan nuestros platos Internacionales!!"
     const [dishes, setDishes] = useState([{}]);
     const [bool, setBoolean] = useState(true);
-    console.log(bool)
 
     useEffect(() => {
         getFetch()

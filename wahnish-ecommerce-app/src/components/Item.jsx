@@ -1,16 +1,13 @@
 import '../App.css';
+import ItemDetailContainer from '../Container/ItemDetailContainer';
 import ItemCount from './ItemCount.jsx'
 const ItemCard = ({ item }) => {
   let order = 0;
+  let identificacion = item.id;
   return (
     <div className="card m-2 p-0 ">
       <div className="card-header centrar">
-        <div>
-          <h3>{item.descripcion} p/porcion {item.precio}$</h3>
-        </div>
-        <div className="image-size centrar">
-          {item.imagen}
-        </div>
+        <ItemDetailContainer identificacion = {identificacion}/>
       </div>
       <div className="card-body centrar">
         <ItemCount item={item} order={order} />

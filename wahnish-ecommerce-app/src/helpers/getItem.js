@@ -73,14 +73,14 @@ const platos = [
 
 ]
 
-const getFetch = () => {
+const getItem = (identificacion) => {
+    const dish = platos.find(element => element.id === identificacion);
     return (
         new Promise(function (resolve, reject) {
-            setTimeout(function () { 
-                resolve(platos);                
-            }, 2000);
+            setTimeout(function () { }, 2000);
+            resolve(dish);
         })
     )
 }
 
-export default getFetch;
+export default getItem;
