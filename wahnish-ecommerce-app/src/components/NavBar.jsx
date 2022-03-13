@@ -18,6 +18,7 @@ const NavBar = () => {
             <NavLink to="categoria/plato"><button className="btn btn-warning btn-lg button"><strong>Platos</strong></button></NavLink>
             <NavLink to="categoria/postre"><button className="btn btn-warning btn-lg button"><strong>Postres</strong></button></NavLink>
             <NavLink to="categoria/desayuno"><button className="btn btn-warning btn-lg button"><strong>Desayunos</strong></button></NavLink>
+            <NavLink to="clase/general"><button className="btn btn-warning btn-lg button"><strong>Generales</strong></button></NavLink>
             <NavLink to="clase/infantil"><button className="btn btn-warning btn-lg button"><strong>Infantiles</strong></button></NavLink>
           </Navbar>
           <NavLink to="cart" className="pointer nav-link asBody  cart" id="confirmar">
