@@ -9,8 +9,8 @@ import choripan from '../assets/choripan.png';
 const platos = [
     {
         id: "P000",
-        tipo: "Platos",
-        categoria: "Internacionales",
+        categoria: "plato",
+        clase: "principal",
         descripcion: "Cazuela de Mariscos",
         imagen: <img src={cazuela} alt="cazuela" />,
         precio: 500,
@@ -18,8 +18,8 @@ const platos = [
     },
     {
         id: "P001",
-        tipo: "Platos",
-        categoria: "Internacionales",
+        categoria: "plato",
+        clase: "principal",
         descripcion: "Choripan con Chimichurri",
         imagen: <img src={choripan} alt="choripan" />,
         precio: 350,
@@ -27,8 +27,8 @@ const platos = [
     },
     {
         id: "P002",
-        tipo: "Platos",
-        categoria: "Internacionales",
+        categoria: "plato",
+        clase: "principal",
         descripcion: "Carne a la olla con verduras",
         imagen: <img src={carne_a_la_olla} alt="carne" />,
         precio: 450,
@@ -36,8 +36,8 @@ const platos = [
     },
     {
         id: "P003",
-        tipo: "Platos",
-        categoria: "Internacionales",
+        categoria: "plato",
+        clase: "principal",
         descripcion: "Pierna de cordero rellena",
         imagen: <img src={cordero} alt="cazuela" />,
         precio: 500,
@@ -45,8 +45,8 @@ const platos = [
     },
     {
         id: "P004",
-        tipo: "Platos",
-        categoria: "Internacionales",
+        categoria: "plato",
+        clase: "principal",
         descripcion: "Pasta a los cuatro quesos",
         imagen: <img src={spaetzle} alt="pastas" />,
         precio: 350,
@@ -54,17 +54,17 @@ const platos = [
     },
     {
         id: "P005",
-        tipo: "Platos",
-        categoria: "Internacionales",
-        descripcion: "Locro con ganado vacuno y porcino",
+        categoria: "plato",
+        clase: "principal",
+        descripcion: "Locro con carne vacuna y porcina",
         imagen: <img src={locro} alt="locro" />,
         precio: 450,
         porciones: 30
     },
     {
         id: "P006",
-        tipo: "Platos",
-        categoria: "Infantiles",
+        categoria: "plato",
+        clase: "infantil",
         descripcion: "Empanadas suaves de carne",
         imagen: <img src={empanadas} alt="empanadas" />,
         precio: 350,

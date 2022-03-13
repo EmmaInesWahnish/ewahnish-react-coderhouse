@@ -4,6 +4,7 @@ const ItemDetail = ({item}) => {
   <div>
       <h3>{item.descripcion}</h3> 
       <h3>p/porcion {item.precio}$</h3>
+      <h3>{`${item.categoria} ${item.clase}`}</h3>
   </div>
   <div className="image-size centrar">
       {item.imagen}

@@ -1,21 +1,55 @@
 /*import logo from './logo.svg';*/
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css';
 import NavBar from './components/NavBar.jsx';
 import FoodDelivery from './components/FoodDelivery.jsx';
 import FooterInfo from './components/FooterInfo.jsx';
-import ItemListContainer from './Container/ItemListContainer.jsx';
+import ItemListContainer from './Container/ItemListContainer/ItemListContainer.jsx';
+import ItemDetailContainer from './Container/ItemDetailContainer/ItemDetailContainer.jsx';
+import ItemClassContainer from './Container/ItemListContainer/ItemClassContainer.jsx';
+import Componente404 from './components/Componente404.jsx';
+import Cart from './components/Cart/Cart.jsx';
 function App() {
   return (
-    <div className="asBody">
+    <BrowserRouter>
       <header>
-        <NavBar />
-        <FoodDelivery />
+        <div className="asBody">
+          <div class="bg-warning">
+            <NavBar />
+          </div>
+          <FoodDelivery />
+        </div>
       </header>
-      <div className="asBody">
-        <ItemListContainer />
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={<ItemListContainer />}
+        />
+        <Route
+          path="/categoria/:id"
+          element={<ItemListContainer />}
+        />
+        <Route
+          path="/clase"
+          element={<ItemClassContainer />}
+        />
+        <Route
+          path="/clase/:id"
+          element={<ItemClassContainer />}
+        />
+        <Route
+          path="/cart"
+          element={<Cart />}
+        />
+        <Route path='/detail/:detailId' element={<ItemDetailContainer />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/clase' element={<ItemClassContainer />} />
+        <Route path='/notFound' element={<Componente404 />} />
+        <Route path='/*' element={<Navigate to='/' />} />
+      </Routes>
       <FooterInfo />
-    </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,14 +1,16 @@
 import '../App.css';
-import ItemDetailContainer from '../Container/ItemDetailContainer';
+import { Link } from "react-router-dom";
+import ItemDetailContainer from '../Container/ItemDetailContainer/ItemDetailContainer.jsx';
 import ItemCount from './ItemCount.jsx'
 const ItemCard = ({ item }) => {
   let order = 0;
-  let identificacion = item.id;
   return (
     <div className="card m-2 p-0 ">
-      <div className="card-header centrar">
-        <ItemDetailContainer identificacion = {identificacion}/>
-      </div>
+      <Link to={`detail/${item.id}`}>
+        <div className="card-header centrar">
+          <ItemDetailContainer identificacion={item.id} />
+        </div>
+      </Link>
       <div className="card-body centrar">
         <ItemCount item={item} order={order} />
       </div>
