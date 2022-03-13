@@ -6,7 +6,7 @@ import NavBar from './components/NavBar.jsx';
 import FoodDelivery from './components/FoodDelivery.jsx';
 import FooterInfo from './components/FooterInfo.jsx';
 import ItemListContainer from './Container/ItemListContainer/ItemListContainer.jsx';
-import ItemDetailContainer from './Container/ItemDetailContainer/ItemDetailContainer.jsx';
+import ItemIdContainer from './Container/ItemListContainer/ItemIdContainer.jsx';
 import ItemClassContainer from './Container/ItemListContainer/ItemClassContainer.jsx';
 import Componente404 from './components/Componente404.jsx';
 import Cart from './components/Cart/Cart.jsx';
@@ -42,7 +42,7 @@ function App() {
           path="/cart"
           element={<Cart />}
         />
-        <Route path='/detail/:detailId' element={<ItemDetailContainer />} />
+        <Route path='/detail/:id' element={<ItemIdContainer />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/clase' element={<ItemClassContainer />} />
         <Route path='/notFound' element={<Componente404 />} />
