@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <header>
         <div className="asBody">
-          <div class="bg-warning">
+          <div className="bg-warning">
             <NavBar />
           </div>
           <FoodDelivery />
