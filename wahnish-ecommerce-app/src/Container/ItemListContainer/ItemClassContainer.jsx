@@ -15,7 +15,7 @@ const ItemListContainer = () => {
     useEffect(() => {
         if (id) {
         getFetch()
-            .then(response => setDishes(response.filter(d => d.clase == id)))
+            .then(response => setDishes(response.filter(d => d.clase === id)))
             .catch((err) => console.log(err))
             .finally(() => setBoolean(() => false))
         } else {
