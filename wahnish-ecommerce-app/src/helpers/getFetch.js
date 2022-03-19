@@ -9,6 +9,11 @@ import hotDog from '../assets/hotDogKids.jpg';
 import omelette from '../assets/omeletteKids.jpg';
 import albondigas from '../assets/pastaAlbondigas.jpg';
 import panSalchicha from '../assets/pigsInBlanket.jpg';
+import easycroissant from '../assets/easycroissant.jpg';
+import pancakes from '../assets/pancakes.jpg';
+import cremalimon from '../assets/cremalimon.jpg';
+import frutillas from '../assets/frutillas.jpg';
+import tiramisu from '../assets/tiramisu.jpg';
 
 const platos = [
     {
@@ -107,6 +112,51 @@ const platos = [
         clase: "infantil",
         descripcion: "Pan de Salchicha (c/por. 6 u)",
         imagen: <img src={panSalchicha} alt="pan de salchicha" />,
+        precio: 400,
+        porciones: 150
+    },
+    {
+        id: "P011",
+        categoria: "desayuno",
+        clase: "general",
+        descripcion: "Mediaslunas con jamon, queso y huevo",
+        imagen: <img src={easycroissant} alt="croissant" />,
+        precio: 350,
+        porciones: 80
+    },
+    {
+        id: "P012",
+        categoria: "desayuno",
+        clase: "general",
+        descripcion: "Panqueques americanos con frutas",
+        imagen: <img src={pancakes} alt="panqueques" />,
+        precio: 400,
+        porciones: 150
+    },
+    {
+        id: "P013",
+        categoria: "postre",
+        clase: "infantil",
+        descripcion: "Crema al limon",
+        imagen: <img src={cremalimon} alt="Crema al limon" />,
+        precio: 400,
+        porciones: 150
+    },
+    {
+        id: "P014",
+        categoria: "postre",
+        clase: "",
+        descripcion: "Frutillas con Crema",
+        imagen: <img src={frutillas} alt="frutillas" />,
+        precio: 350,
+        porciones: 80
+    },
+    {
+        id: "P015",
+        categoria: "postre",
+        clase: "general",
+        descripcion: "Tiramisu",
+        imagen: <img src={tiramisu} alt="tiramisu" />,
         precio: 400,
         porciones: 150
     }

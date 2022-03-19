@@ -26,8 +26,6 @@ const ItemListContainer = () => {
         }
     }, [id]);
     
-    console.log(id);
-
     if (bool) {
         return (
             <div className="flex-container">
