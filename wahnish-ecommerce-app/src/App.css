@@ -256,3 +256,8 @@ button {
   height:auto;
   width:140px;
 }
+
+.producto {
+  border-style:ridge;
+  border-color: lightgray;
+}

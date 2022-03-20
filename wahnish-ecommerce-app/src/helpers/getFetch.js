@@ -145,7 +145,7 @@ const platos = [
     {
         id: "P014",
         categoria: "postre",
-        clase: "",
+        clase: "general",
         descripcion: "Frutillas con Crema",
         imagen: <img src={frutillas} alt="frutillas" />,
         precio: 350,

@@ -10,9 +10,11 @@ import ItemIdContainer from './Container/ItemListContainer/ItemIdContainer.jsx';
 import ItemClassContainer from './Container/ItemListContainer/ItemClassContainer.jsx';
 import Componente404 from './components/Componente404.jsx';
 import Cart from './components/Cart/Cart.jsx';
+import CartContextProvider from './context/cartContext.js';
 function App() {
   return (
     <BrowserRouter>
+    <CartContextProvider>
       <header>
         <div className="asBody">
           <div className="bg-warning">
@@ -49,6 +51,7 @@ function App() {
         <Route path='/*' element={<Navigate to='/' />} />
       </Routes>
       <FooterInfo />
+      </CartContextProvider>
     </BrowserRouter>
   );
 }
