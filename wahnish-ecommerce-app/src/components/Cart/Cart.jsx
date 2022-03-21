@@ -17,7 +17,7 @@ function Cart() {
                             <th id="topRow02">Descripcion</th>
                             <th id="topRow03">Precio</th>
                             <th id="topRow04">Cantidad</th>
-                            <th id="topRow06">Acumulado</th>
+                            <th id="topRow06">T.Parcial</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,7 +28,7 @@ function Cart() {
                             <td>{item.descripcion}</td>
                             <td>{item.precio}</td>
                             <td>{item.cantidad}</td>
-                            <td>{ }</td>
+                            <td>{item.precio * item.cantidad }</td>
                         </tr>)}
                     </tbody>
                 </table>

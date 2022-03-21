@@ -69,15 +69,6 @@ const ItemCount = ({ item, order, onAdd }) => {
     } else {
         return (
             <div className="flex-container-text centrar">
-                <div className="flex-container-buttons  p-0 m-0" style={{ width: 200 }}>
-                    <button
-                        onClick={increment}
-                        className="btn btn-oval btn-xs btn-light"><em className="fa fa-plus"></em></button>
-                    <div className="flex-item">{quantity}</div>
-                    <button
-                        onClick={decrement}
-                        className="btn btn-oval btn-xs btn-light"><em className="fa fa-minus"></em></button>
-                </div>
                 <div className="lessWidth">
                     <Link to={`/Cart`}>
                         <button style={{ width: 200 }}
@@ -96,7 +87,7 @@ const ItemCount = ({ item, order, onAdd }) => {
                 <div className="lessWidth">
                     <Link to={`/`}>
                         <button style={{ width: 200 }}
-                            className="btn btn-primary"><em>Agregar otro Item</em>
+                            className="btn btn-info"><em>Continuar Compra</em>
                         </button>
                     </Link>
                 </div>
