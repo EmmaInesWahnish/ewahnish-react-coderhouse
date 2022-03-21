@@ -12,7 +12,6 @@ const ItemCount = ({ item, order, onAdd }) => {
     const [partialPrice, setPrice] = useState(Number(initialPrice));
     let c = quantity;
     let d = thePortions;
-    let p = initialPrice;
     let procedo = (isInCart(item.id)) ? false : true;
 
     const increment = () => {
@@ -20,7 +19,7 @@ const ItemCount = ({ item, order, onAdd }) => {
             if (d > 0) {
                 setCount((c) => c + 1);
                 setPortion((d) => d - 1);
-                setPrice(() => d + Number(item.precio));
+                setPrice(() => partialPrice + Number(item.precio));
             } else {
                 alert("Ya no quedan porciones disponibles")
             }
@@ -35,7 +34,7 @@ const ItemCount = ({ item, order, onAdd }) => {
             if (c > 0) {
                 setCount((c) => c - 1);
                 setPortion((d) => d + 1);
-                setPrice(() => p - Number(item.precio));
+                setPrice(() => partialPrice - Number(item.precio));
             } else {
                 alert("No hay porciones de este item en el pedido")
             }
