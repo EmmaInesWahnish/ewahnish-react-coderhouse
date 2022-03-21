@@ -1,11 +1,11 @@
 import { useCartContext } from "../../context/cartContext"
 
 function Cart() {
-    const { cartList, vaciarCarrito } = useCartContext();
+    const { cartList, vaciarCarrito, finalizarCompra } = useCartContext();
     let importeTotal = 0;
     cartList.forEach(calculateTotalPrice);
     function calculateTotalPrice(element) {
-        importeTotal = importeTotal + (element.cantidad * element.precio);
+        importeTotal = importeTotal + (element.precio * element.cantidad);
     }
     return (
         <div>
@@ -43,7 +43,8 @@ function Cart() {
                 </div>
             </div>
             <div>
-                <button className="btn btn-primary btn-lg button m-3 " onClick={vaciarCarrito}>Vaciar Carrito</button>
+                <button className="btn btn-danger btn-lg button m-3 " onClick={vaciarCarrito}>Cancelar Compra</button>
+                <button className="btn btn-success btn-lg button m-3 " onClick={finalizarCompra}>Finalizar Compra</button>
             </div>
         </div>
     )

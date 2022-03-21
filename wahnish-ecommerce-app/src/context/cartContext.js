@@ -38,13 +38,19 @@ function CartContextProvider({children}) {
         setCartList([]);
     }
 
+    const finalizarCompra = () => {
+        alert("Aca se insertara logica para adecuar stock y luego vaciar el carrito; por el momento solo se vacia el carrito sin actualizar stock")
+        setCartList([]);
+    }
+
     return (
         <CartContext.Provider value={{
             cartList,
             addToCart,
             vaciarCarrito,
             isInCart,
-            removeFromCart
+            removeFromCart,
+            finalizarCompra
         }}>
             { children }
         </CartContext.Provider>
