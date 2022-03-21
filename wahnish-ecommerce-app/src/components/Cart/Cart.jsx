@@ -2,6 +2,11 @@ import { useCartContext } from "../../context/cartContext"
 
 function Cart() {
     const { cartList, vaciarCarrito } = useCartContext();
+    let importeTotal = 0;
+    cartList.forEach(calculateTotalPrice);
+    function calculateTotalPrice(element) {
+        importeTotal = importeTotal + (element.cantidad * element.precio);
+    }
     return (
         <div>
             <div>
@@ -32,6 +37,10 @@ function Cart() {
                         </tr>)}
                     </tbody>
                 </table>
+                <div className="m-3">
+                    <h3>Importe Total </h3>
+                    <h3>{importeTotal}</h3>
+                </div>
             </div>
             <div>
                 <button className="btn btn-primary btn-lg button m-3 " onClick={vaciarCarrito}>Vaciar Carrito</button>
