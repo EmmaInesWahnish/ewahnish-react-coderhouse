@@ -5,11 +5,7 @@ import { useCartContext } from '../context/cartContext.js';
 const ItemDetail = ({ item }) => {
   let order = 0;
   
-  const{addToCart, isInCart} = useCartContext();
-
-  let identification = item.id;
-
-  console.log(isInCart(identification))
+  const{addToCart} = useCartContext();
 
   const onAdd = (cant, acum) => {
     addToCart({...item, cantidad:cant, acumulado:acum});

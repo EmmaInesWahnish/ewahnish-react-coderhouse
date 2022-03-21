@@ -81,7 +81,7 @@ const ItemCount = ({ item, order, onAdd }) => {
                 <div className="lessWidth">
                     <Link to={`/Cart`}>
                         <button style={{ width: 200 }}
-                            className="btn btn-success"><em>Terminar Compra</em>
+                            className="btn btn-success"><em>Controlar Pedido</em>
                         </button>
                     </Link>
                 </div>
