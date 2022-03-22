@@ -31,6 +31,7 @@ function CartContextProvider({children}) {
             const index= cartList.indexOf(dish)
             cartList.splice(index,1);
             alert("El item fue removido del pedido")
+            setCartList([...cartList])
         }
     }
 

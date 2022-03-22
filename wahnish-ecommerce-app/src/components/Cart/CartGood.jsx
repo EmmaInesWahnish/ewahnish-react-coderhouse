@@ -1,25 +1,12 @@
 import { useCartContext } from "../../context/cartContext"
 
-const Cart = () => {
-    const { cartList, vaciarCarrito, finalizarCompra, removeFromCart } = useCartContext();
+function Cart() {
+    const { cartList, vaciarCarrito, finalizarCompra } = useCartContext();
     let importeTotal = 0;
     cartList.forEach(calculateTotalPrice);
     function calculateTotalPrice(element) {
         importeTotal = importeTotal + (element.precio * element.cantidad);
     }
-
-    let itemId = cartList.map((element) => {
-        return {
-            id: element.id,
-            extra: element.categoria
-        }
-    })
-
-    function eliminarItem(e) {
-        let producto = e.target.value;
-        removeFromCart(producto);
-    }
-
     return (
         <div>
             <div>
@@ -46,7 +33,7 @@ const Cart = () => {
                             <td>{item.descripcion}</td>
                             <td>{item.precio}</td>
                             <td>{item.cantidad}</td>
-                            <td>{item.precio * item.cantidad}</td>
+                            <td>{item.precio * item.cantidad }</td>
                         </tr>)}
                     </tbody>
                 </table>
@@ -56,14 +43,8 @@ const Cart = () => {
                 </div>
             </div>
             <div>
-                <label className="btn-lg bg-warning m-3">Seleccionar Item a eliminar</label>
-                <select id="mySelect" className="md-3 asBody" onChange={(e) => eliminarItem(e)} >
-                    {itemId.map(item => <option key={item.id + item.extra}>
-                        {item.id}
-                    </option>)}
-                </select>
-                <button className="btn btn-danger btn-lg button m-3 " onClick={vaciarCarrito}>Cancelar la Compra</button>
-                <button className="btn btn-success btn-lg button m-3 " onClick={finalizarCompra}>Finalizar la Compra</button>
+                <button className="btn btn-danger btn-lg button m-3 " onClick={vaciarCarrito}>Cancelar Compra</button>
+                <button className="btn btn-success btn-lg button m-3 " onClick={finalizarCompra}>Finalizar Compra</button>
             </div>
         </div>
     )

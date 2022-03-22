@@ -42,6 +42,13 @@ const ItemCount = ({ item, order, onAdd }) => {
             alert("El item ya figura en el pedido");
         }
     };
+
+    const remover = ()=>{
+        if (!procedo){
+            removeFromCart(item.id)
+        }
+    }
+    
     if (procedo) {
         return (
             <div className="flex-container-text centrar">
@@ -78,7 +85,7 @@ const ItemCount = ({ item, order, onAdd }) => {
                 <div className="lessWidth">
                     <button style={{ width: 200 }}
                         onClick={() => {
-                            removeFromCart(item.id)
+                            remover()
                         }}
                         className="btn btn-warning"><em>Remover Item</em>
                     </button>
