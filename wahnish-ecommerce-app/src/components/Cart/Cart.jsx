@@ -58,6 +58,7 @@ const Cart = () => {
             <div>
                 <label className="btn-lg bg-warning m-3">Seleccionar Item a eliminar</label>
                 <select id="mySelect" className="md-3 asBody" onChange={(e) => eliminarItem(e)} >
+                    <option>Opciones</option>
                     {itemId.map(item => <option key={item.id + item.extra}>
                         {item.id}
                     </option>)}
