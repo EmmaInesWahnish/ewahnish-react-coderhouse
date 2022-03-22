@@ -120,7 +120,7 @@ const platos = [
         id: "P011",
         categoria: "desayuno",
         clase: "general",
-        descripcion: "Mediaslunas con jamon, queso y huevo",
+        descripcion: "Medialunas con jamon, queso y huevo",
         imagen: <img src={easycroissant} alt="croissant" />,
         precio: 350,
         porciones: 80

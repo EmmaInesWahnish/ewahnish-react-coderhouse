@@ -12,7 +12,7 @@ const ItemDetail = ({ item }) => {
   }
 
   return (<>
-    <Link to={`detail/${item.id}`}>
+    <Link to={`/detail/${item.id}`}>
       <div className="card-header centrar">
         <h3>{item.descripcion}</h3>
         <h3>p/porcion {item.precio}$</h3>
