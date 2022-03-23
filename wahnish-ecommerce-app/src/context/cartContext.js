@@ -21,7 +21,9 @@ function CartContextProvider({children}) {
         setCartList([...cartList, item]);
         }
         else {
-            alert("Item ya esta en el pedido")
+            cartList.cantidad += item.cantidad;
+            alert("Item ya esta en el pedido, se suma la cantidad a la ya existente")
+            setCartList([...cartList])
         }
     }
 
