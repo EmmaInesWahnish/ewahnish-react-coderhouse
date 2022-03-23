@@ -261,3 +261,19 @@ button {
   border-style:ridge;
   border-color: lightgray;
 }
+
+.roundButton {
+  background-color: firebrick;
+  border: none;
+  color:white;
+  padding: 10px;
+  text-align:center;
+  font-size:20px;
+  font-weight:600;
+  display:inline-block;
+  margin:2px 2px;
+  cursor:pointer;
+  border-radius: 50%;
+  width: 25px;
+  height:25px;
+}

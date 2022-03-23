@@ -8,17 +8,6 @@ const Cart = () => {
         importeTotal = importeTotal + (element.precio * element.cantidad);
     }
 
-    let itemId = cartList.map((element) => {
-        return {
-            id: element.id,
-            extra: element.categoria
-        }
-    })
-
-    function eliminarItem(e) {
-        let producto = e.target.value;
-        removeFromCart(producto);
-    }
 
     return (
         <div>
@@ -36,6 +25,7 @@ const Cart = () => {
                             <th id="topRow03">Precio</th>
                             <th id="topRow04">Cantidad</th>
                             <th id="topRow06">T.Parcial</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +37,7 @@ const Cart = () => {
                             <td>{item.precio}</td>
                             <td>{item.cantidad}</td>
                             <td>{item.precio * item.cantidad}</td>
+                            <td><button className="roundButton" onClick={() => removeFromCart(item.id)}></button></td>
                         </tr>)}
                     </tbody>
                 </table>
@@ -56,13 +47,13 @@ const Cart = () => {
                 </div>
             </div>
             <div>
-                <label className="btn-lg bg-warning m-3">Seleccionar Item a eliminar</label>
+               {/* <label className="btn-lg bg-warning m-3">Seleccionar Item a eliminar</label>
                 <select id="mySelect" className="md-3 asBody" onChange={(e) => eliminarItem(e)} >
                     <option>Opciones</option>
                     {itemId.map(item => <option key={item.id + item.extra}>
                         {item.id}
                     </option>)}
-                </select>
+                    </select>*/}
                 <button className="btn btn-danger btn-lg button m-3 " onClick={vaciarCarrito}>Cancelar la Compra</button>
                 <button className="btn btn-success btn-lg button m-3 " onClick={finalizarCompra}>Finalizar la Compra</button>
             </div>
