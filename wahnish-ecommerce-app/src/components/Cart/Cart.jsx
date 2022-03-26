@@ -65,11 +65,16 @@ const Cart = () => {
                         </div>
                     </div>
                     :
-                    <Link to={`/`}>
+                    <>
                         <div className="asBody m-5">
                             <h2 className="centrar">El pedido esta vacio</h2>
                         </div>
-                    </Link>
+                        <Link to={`/`}>
+                            <div className="centrar">
+                                <button className="btn btn-info btn-lg button m-5" style={{ width: 200 }}>Comprar</button>
+                            </div>
+                        </Link>
+                    </>
             }
         </>
     )
