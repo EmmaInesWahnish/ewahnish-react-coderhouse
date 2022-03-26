@@ -1,21 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import cazuela from '../assets/cazuela.png';
-import cordero from '../assets/cordero.png';
-import carne_a_la_olla from '../assets/carne-a-la-olla.png';
-import locro from '../assets/locro.png';
-import spaetzle from '../assets/spaetzle.png';
-import empanadas from '../assets/empanadas.png';
-import choripan from '../assets/choripan.png';
-import hotDog from '../assets/hotDogKids.jpg';
-import omelette from '../assets/omeletteKids.jpg';
-import albondigas from '../assets/pastaAlbondigas.jpg';
-import panSalchicha from '../assets/pigsInBlanket.jpg';
-import easycroissant from '../assets/easycroissant.jpg';
-import pancakes from '../assets/pancakes.jpg';
-import cremalimon from '../assets/cremalimon.jpg';
-import frutillas from '../assets/frutillas.jpg';
-import tiramisu from '../assets/tiramisu.jpg';
 import db from '../firebase.config.js';
 import { onSnapshot, collection, setDoc, doc, addDoc } from 'firebase/firestore'
 
@@ -25,7 +9,7 @@ const platos = [
         categoria: "plato",
         clase: "general",
         descripcion: "Cazuela de Mariscos",
-        imagen: <img src={cazuela} alt="cazuela" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/cazuela.png?alt=media&token=b9295812-6afb-48ac-b593-050e48ab2c00",
         calorias: 450,
         precio: 500,
         porciones: 50
@@ -35,7 +19,7 @@ const platos = [
         categoria: "plato",
         clase: "general",
         descripcion: "Choripan con Chimichurri",
-        imagen: <img src={choripan} alt="choripan" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/choripan.png?alt=media&token=5ddbe259-2615-4dc5-b45e-9e5f890fd8e7",
         calorias: 910,
         precio: 350,
         porciones: 100
@@ -45,7 +29,7 @@ const platos = [
         categoria: "plato",
         clase: "general",
         descripcion: "Carne a la olla con verduras",
-        imagen: <img src={carne_a_la_olla} alt="carne" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/carne-a-la-olla.png?alt=media&token=122bb68e-cc49-458a-af3c-93cd466c22da",
         calorias: 680,
         precio: 450,
         porciones: 40
@@ -55,7 +39,7 @@ const platos = [
         categoria: "plato",
         clase: "general",
         descripcion: "Pierna de cordero rellena",
-        imagen: <img src={cordero} alt="cazuela" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/cordero.png?alt=media&token=7e109b38-17e2-491c-a0d5-10d7539fe976",
         calorias: 680,
         precio: 500,
         porciones: 20
@@ -65,7 +49,7 @@ const platos = [
         categoria: "plato",
         clase: "general",
         descripcion: "Pasta a los cuatro quesos",
-        imagen: <img src={spaetzle} alt="pastas" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/spaetzle.png?alt=media&token=b03fe245-1018-46be-9114-a787872625bf",
         calorias: 307,
         precio: 350,
         porciones: 80
@@ -75,7 +59,7 @@ const platos = [
         categoria: "plato",
         clase: "general",
         descripcion: "Locro con carne vacuna y porcina",
-        imagen: <img src={locro} alt="locro" />,
+        imagen:"https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/locro.png?alt=media&token=cb66292f-0b66-40f2-bdc5-7211cc5da66d",
         calorias: 576,
         precio: 450,
         porciones: 30
@@ -85,7 +69,7 @@ const platos = [
         categoria: "plato",
         clase: "general",
         descripcion: "Empanadas de carne (c/por. 3 u)",
-        imagen: <img src={empanadas} alt="empanadas" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/empanadas.png?alt=media&token=3cbca930-f603-4fe1-9f52-87575a2c418c",
         calorias: 780,
         precio: 350,
         porciones: 150
@@ -95,7 +79,7 @@ const platos = [
         categoria: "plato",
         clase: "infantil",
         descripcion: "Hot Dogs",
-        imagen: <img src={hotDog} alt="salchichas" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/hotDogKids.jpg?alt=media&token=3e50d77c-2c43-44ef-92e5-78343020c791",
         calorias: 680,
         precio: 300,
         porciones: 60
@@ -105,7 +89,7 @@ const platos = [
         categoria: "plato",
         clase: "infantil",
         descripcion: "Omelette de queso y jamon con arroz",
-        imagen: <img src={omelette} alt="omelette" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/omeletteKids.jpg?alt=media&token=59b4a652-2417-4446-9944-d14a51925ae9",
         calorias: 815,
         precio: 350,
         porciones: 80
@@ -115,7 +99,7 @@ const platos = [
         categoria: "plato",
         clase: "infantil",
         descripcion: "Pasta con albondigas",
-        imagen: <img src={albondigas} alt="locro" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/pastaAlbondigas.jpg?alt=media&token=1ffe376b-159c-4cc8-a60a-8387cbd38ad6",
         calorias: 270,
         precio: 350,
         porciones: 80
@@ -125,7 +109,7 @@ const platos = [
         categoria: "plato",
         clase: "infantil",
         descripcion: "Pan de Salchicha (c/por. 6 u)",
-        imagen: <img src={panSalchicha} alt="pan de salchicha" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/pigsInBlanket.jpg?alt=media&token=bdc0dd99-0f35-4f0b-8183-726674034c72",
         calorias: 748,
         precio: 400,
         porciones: 150
@@ -135,7 +119,7 @@ const platos = [
         categoria: "desayuno",
         clase: "general",
         descripcion: "Medialunas con jamon, queso y huevo",
-        imagen: <img src={easycroissant} alt="croissant" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/easycroissant.jpg?alt=media&token=5d52a0ff-3d00-4926-87b5-11ebef97ee27",
         calorias: 414,
         precio: 350,
         porciones: 80
@@ -145,7 +129,7 @@ const platos = [
         categoria: "desayuno",
         clase: "general",
         descripcion: "Panqueques americanos con frutas",
-        imagen: <img src={pancakes} alt="panqueques" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/pancakes.jpg?alt=media&token=b80a22a9-f96c-43ef-a0d4-71be05074400",
         calorias: 550,
         precio: 400,
         porciones: 150
@@ -155,7 +139,7 @@ const platos = [
         categoria: "postre",
         clase: "infantil",
         descripcion: "Crema al limon",
-        imagen: <img src={cremalimon} alt="Crema al limon" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/cremalimon.jpg?alt=media&token=776ea492-d779-43b6-afaf-ed304d5977cd",
         calorias: 302,
         precio: 400,
         porciones: 150
@@ -165,7 +149,7 @@ const platos = [
         categoria: "postre",
         clase: "general",
         descripcion: "Frutillas con Crema",
-        imagen: <img src={frutillas} alt="frutillas" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/frutillas.jpg?alt=media&token=0a5bf8ad-80a7-4a65-8bc0-405dafd21acc",
         calorias: 310,
         precio: 350,
         porciones: 80
@@ -175,7 +159,7 @@ const platos = [
         categoria: "postre",
         clase: "general",
         descripcion: "Tiramisu",
-        imagen: <img src={tiramisu} alt="tiramisu" />,
+        imagen: "https://firebasestorage.googleapis.com/v0/b/wahnish-ecommerce-coderhouse.appspot.com/o/tiramisu.jpg?alt=media&token=23d6fe61-bb4c-4a5d-a9e6-d218cd178c39",
         calorias: 510,
         precio: 400,
         porciones: 150
@@ -203,6 +187,7 @@ const LoadFirebase = () => {
         const categoria = element.categoria;
         const clase = element.clase;
         const descripcion = element.descripcion;
+        const imagen = element.imagen;
         const calorias = element.calorias;
         const precio = element.precio;
         const porciones = element.porciones;
@@ -211,6 +196,7 @@ const LoadFirebase = () => {
             categoria,
             clase,
             descripcion,
+            imagen,
             calorias,
             precio,
             porciones
@@ -230,7 +216,7 @@ const LoadFirebase = () => {
                     {docus.map((item) => (
                         <li key={item.id + "CI"}>
                             {item.id},
-                            {item.descripcion},{item.precio}
+                            {item.id},{item.descripcion},<img src={item.imagen} alt={item.descripcion} />
                         </li>
                     ))
 

@@ -1,4 +1,5 @@
 import '../App.css';
+import { memo } from "react";
 import Item from './Item.jsx';
 const ItemList = ({item}) => {
         return (<div className="flex-container-card py-10">
@@ -8,4 +9,4 @@ const ItemList = ({item}) => {
             </div>);
 }
 
-export default ItemList;
+export default memo(ItemList);

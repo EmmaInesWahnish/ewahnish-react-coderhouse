@@ -26,11 +26,14 @@ const ItemDetail = ({ item }) => {
       </div>
     </Link>
     <>
+      <div className="card-body centrar">
+        <ItemCount item={item} order={order} onAdd={onAdd} />
+      </div>
+    </>
+    <>
       {
         !isDetail ?
-          <div className="card-body centrar">
-            <ItemCount item={item} order={order} onAdd={onAdd} />
-          </div>
+          <>''</>
           :
           <div className="m-3">
             <h3>Hecho con esmero por chefs profesionales</h3>
