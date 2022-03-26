@@ -11,6 +11,7 @@ import ItemClassContainer from './Container/ItemListContainer/ItemClassContainer
 import Componente404 from './components/Componente404.jsx';
 import Cart from './components/Cart/Cart.jsx';
 import CartContextProvider from './context/cartContext.js';
+import LoadFirestore from './helpers/ItemsABM.js'
 function App() {
   return (
     <BrowserRouter>
@@ -44,6 +45,10 @@ function App() {
           path="/cart"
           element={<Cart />}
         />
+        <Route
+          path="/test"
+          element={<LoadFirestore />}
+        />  
         <Route path='/detail/:id' element={<ItemIdContainer />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/clase' element={<ItemClassContainer />} />

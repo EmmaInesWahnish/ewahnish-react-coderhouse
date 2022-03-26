@@ -1,3 +1,5 @@
+
+import { useState, useEffect } from 'react';
 import cazuela from '../assets/cazuela.png';
 import cordero from '../assets/cordero.png';
 import carne_a_la_olla from '../assets/carne-a-la-olla.png';
@@ -14,6 +16,8 @@ import pancakes from '../assets/pancakes.jpg';
 import cremalimon from '../assets/cremalimon.jpg';
 import frutillas from '../assets/frutillas.jpg';
 import tiramisu from '../assets/tiramisu.jpg';
+import db from '../firebase.config.js';
+import { onSnapshot, collection, setDoc, doc, addDoc } from 'firebase/firestore'
 
 const platos = [
     {
@@ -179,15 +183,63 @@ const platos = [
 
 ]
 
+const LoadFirebase = () => {
+    const [docus, setDocus] = useState([]);
 
-const getItem = (identificacion) => {
-    const dish = platos.find(element => element.id === identificacion);
-    return (
-        new Promise(function (resolve, reject) {
-            setTimeout(function () { }, 2000);
-            resolve(dish);
+    useEffect(() => {
+        const myResult = onSnapshot(collection(db, "items"), (snapshot) => {
+            setDocus(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
         })
+
+        return myResult;
+
+    }, []);
+
+    function cargar(){
+        platos.forEach(element => handleNew(element))
+    }
+
+    const handleNew = async (element)=>{
+        const categoria = element.categoria;
+        const clase = element.clase;
+        const descripcion = element.descripcion;
+        const calorias = element.calorias;
+        const precio = element.precio;
+        const porciones = element.porciones;
+        const collectionRef = collection(db, "items");
+        const payload = {
+            categoria,
+            clase,
+            descripcion,
+            calorias,
+            precio,
+            porciones
+        }
+        const docRef = await addDoc(collectionRef, payload);
+        console.log("Item Id = ", docRef.id)
+    }
+
+
+    return (
+        <>
+            <div>
+                <button className="btn btn-info m-3" onClick={cargar}>Cargar Items</button>
+            </div>
+            <div>
+                <ul>
+                    {docus.map((item) => (
+                        <li key={item.id + "CI"}>
+                            {item.id},
+                            {item.descripcion},{item.precio}
+                        </li>
+                    ))
+
+                    }
+                </ul>
+            </div>
+        </>
     )
 }
 
-export default getItem;
+
+export default LoadFirebase;

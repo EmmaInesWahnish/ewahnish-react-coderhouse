@@ -1,3 +1,5 @@
+
+import { useState, useEffect } from 'react';
 import cazuela from '../assets/cazuela.png';
 import cordero from '../assets/cordero.png';
 import carne_a_la_olla from '../assets/carne-a-la-olla.png';
@@ -14,6 +16,8 @@ import pancakes from '../assets/pancakes.jpg';
 import cremalimon from '../assets/cremalimon.jpg';
 import frutillas from '../assets/frutillas.jpg';
 import tiramisu from '../assets/tiramisu.jpg';
+import db from '../firebase.config.js';
+import { onSnapshot, collection, setDoc, doc, addDoc } from 'firebase/firestore'
 
 const platos = [
     {
@@ -179,15 +183,51 @@ const platos = [
 
 ]
 
+const LoadFirebase = () => {
+    const [docus, setDocus] = useState([]);
 
-const getItem = (identificacion) => {
-    const dish = platos.find(element => element.id === identificacion);
-    return (
-        new Promise(function (resolve, reject) {
-            setTimeout(function () { }, 2000);
-            resolve(dish);
+    useEffect(() => {
+        const myResult = onSnapshot(collection(db, "users"),(snapshot)=>{
+            setDocus(snapshot.docs.map(doc =>({...doc.data(), id: doc.id})))
         })
+
+        return myResult;
+
+    }, []);
+
+    const handleNew = async ()=>{
+        const first = prompt("first");
+        const last = prompt("last");
+        const born = prompt("born");
+        const collectionRef = collection(db, "users");
+        const payload = {
+            first,
+            last,
+            born
+        };
+        const docRef = await addDoc(collectionRef, payload);
+        console.log("Item Id = ",docRef.id)
+    }
+
+    return (
+        <>
+        <div>
+            <button onClick={handleNew}>New</button>
+        </div> 
+        <div>   
+            <ul>
+                {docus.map((user)=>(
+                    <li key={user.id}>
+                        {user.last},{user.first}
+                    </li>
+                ))
+
+                }
+            </ul>
+         </div>
+         </>
     )
 }
 
-export default getItem;
+
+export default LoadFirebase;
