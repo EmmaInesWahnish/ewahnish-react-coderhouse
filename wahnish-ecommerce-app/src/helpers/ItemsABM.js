@@ -180,7 +180,7 @@ const LoadFirebase = () => {
     }, []);
 
     function cargar(){
-        platos.forEach(element => handleNew(element))
+        //platos.forEach(element => handleNew(element))
     }
 
     const handleNew = async (element)=>{
