@@ -148,6 +148,17 @@ h2 {
   font-size: 1.5em;
 }
 
+h3 {
+  text-align: center;
+}
+
+.pictures {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
+
 .flex-container-text {
   display: flex;
   flex-direction: column;
@@ -169,9 +180,13 @@ h2 {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  justify-items:center;
+  justify-self: center;
 }
 
 .flex-container-buttons {
+  justify-self: center;
+  justify-items: center;
   display: flex;
   flex-wrap: nowrap;
   border-style: groove;
@@ -184,7 +199,7 @@ h2 {
 
 .centrar {
   margin: auto;
-  max-width: 300px;
+  max-width: 280px;
 }
 
 th {
@@ -194,12 +209,6 @@ th {
 
 .lessWidth {
   width: 20%;
-}
-
-.image-size {
-  max-height: 150px;
-  width: auto;
-  justify-content: center;
 }
 
 /*animación del spinner*/
@@ -258,6 +267,8 @@ button {
 }
 
 .producto {
+  width:300px;
+  align-items: center;
   border-style:ridge;
   border-color: lightgray;
 }

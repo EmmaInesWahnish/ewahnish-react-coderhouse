@@ -16,24 +16,22 @@ const ItemDetail = ({ item }) => {
   const isDetail = (id === item.id) ? true : false;
   return (<>
     <Link to={`/detail/${item.id}`}>
-      <div className="card-header centrar">
+      <div className="card-header centrar" style={{ width: 300 }}>
         <h3>{item.descripcion}</h3>
         <h3>p/porcion {item.precio}$</h3>
         <h3>{`${item.categoria} ${item.clase}`}</h3>
-        <div className="image-size centrar">
-          {item.imagen}
+        <div className="pictures">
+          <img src={item.imagen} alt={item.descripcion} />
         </div>
       </div>
     </Link>
-    <>
-      <div className="card-body centrar">
-        <ItemCount item={item} order={order} onAdd={onAdd} />
-      </div>
-    </>
-    <>
+    <div className="card-body centrar">
+      <ItemCount item={item} order={order} onAdd={onAdd} />
+    </div>
+    <div className="centrar">
       {
         !isDetail ?
-          <>''</>
+          <></>
           :
           <div className="m-3">
             <h3>Hecho con esmero por chefs profesionales</h3>
@@ -41,7 +39,7 @@ const ItemDetail = ({ item }) => {
             <h3>Aproximadamente {item.calorias} calorias por porción</h3>
           </div>
       }
-    </>
+    </div>
   </>);
 }
 

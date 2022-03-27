@@ -1,3 +1,5 @@
+import db from '../../firebase.config.js';
+import { onSnapshot, collection, getDocs, getDoc, limit, query, where, setDoc, doc, addDoc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import '../../App.css';
@@ -12,7 +14,7 @@ const ItemListContainer = () => {
     const [bool, setBoolean] = useState(true);
     const {id} = useParams();
 
-    useEffect(() => {
+    {/*useEffect(() => {
         if (id) {
         getFetch()
             .then(response => setDishes(response.filter(d => d.clase === id)))
@@ -24,7 +26,25 @@ const ItemListContainer = () => {
             .catch((err) => console.log(err))
             .finally(() => setBoolean(() => false))
         }
-    }, [id]);
+    }, [id]);*/}
+
+    useEffect(() => {
+        const queryCollection = collection(db, "items");
+        if (id) {
+            const queryFilter = query(queryCollection,
+                where('clase', '==', id))
+            getDocs(queryFilter)
+                .then(resp => setDishes(resp.docs.map(prod => ({ id: prod.id, ...prod.data() }))))
+                .catch(err => console.log(err))
+                .finally(() => setBoolean(() => false))
+        }
+        else {
+            getDocs(queryCollection)
+                .then(resp => setDishes(resp.docs.map(prod => ({ id: prod.id, ...prod.data() }))))
+                .catch(err => console.log(err))
+                .finally(() => setBoolean(() => false))
+        }
+    }, [id])
     
     if (bool) {
         return (

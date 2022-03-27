@@ -1,10 +1,10 @@
 import '../App.css';
 import ItemDetailContainer from '../Container/ItemDetailContainer/ItemDetailContainer.jsx';
-const ItemCard = ({ element }) => {
+const ItemCard = ({ identificacion }) => {
   return (
     <>
       <div className="card m-2 p-0 producto">
-        <ItemDetailContainer identificacion={element.id} />
+        <ItemDetailContainer identificacion={identificacion} />
         <div className="informacion bg-light">
           <h3>Pedidos: Todos los dias</h3>
           <h3>de 08:00 a 22:00 horas</h3>

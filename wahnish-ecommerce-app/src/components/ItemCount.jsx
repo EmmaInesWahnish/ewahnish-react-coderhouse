@@ -17,8 +17,8 @@ const ItemCount = ({ item, order, onAdd }) => {
     const increment = () => {
         if (procedo) {
             if (d > 0) {
-                setCount((c) => c + 1);
-                setPortion((d) => d - 1);
+                setCount(() => quantity + 1);
+                setPortion(() => thePortions - 1);
                 setPrice(() => partialPrice + Number(item.precio));
             } else {
                 alert("Ya no quedan porciones disponibles")
@@ -32,8 +32,8 @@ const ItemCount = ({ item, order, onAdd }) => {
     const decrement = () => {
         if (procedo) {
             if (c > 0) {
-                setCount((c) => c - 1);
-                setPortion((d) => d + 1);
+                setCount(() => quantity - 1);
+                setPortion(() => thePortions + 1);
                 setPrice(() => partialPrice - Number(item.precio));
             } else {
                 alert("No hay porciones de este item en el pedido")
@@ -53,8 +53,8 @@ const ItemCount = ({ item, order, onAdd }) => {
         <>
             {
                 procedo ?
-                    <div className="flex-container-text centrar">
-                        <div className="flex-container-buttons  p-0 m-0" style={{ width: 200 }}>
+                    <div className="flex-container-text" style={{ width: 300 }}>
+                        <div className="flex-container-buttons  p-0 m-0" style={{ width: 250 }}>
                             <button
                                 onClick={increment}
                                 className="btn btn-oval btn-xs btn-light"><em className="fa fa-plus"></em></button>
@@ -64,27 +64,27 @@ const ItemCount = ({ item, order, onAdd }) => {
                                 className="btn btn-oval btn-xs btn-light"><em className="fa fa-minus"></em></button>
                         </div>
                         <div className="lessWidth">
-                            <button style={{ width: 200 }}
+                            <button style={{ width: 250 }}
                                 onClick={() => {
                                     onAdd(quantity, partialPrice)
                                 }}
                                 className="btn btn-primary"><em>Agregar al pedido</em>
                             </button>
                         </div>
-                        <div className="flex-container-text" style={{ width: 200 }}><h3>Porciones restantes {thePortions}</h3></div>
-                        <div className="flex-container-text" style={{ width: 200 }}><h3>Importe Acumulado {partialPrice}$</h3></div>
+                        <div className="flex-container-text" style={{ width: 250 }}><h3>Porciones restantes {thePortions}</h3></div>
+                        <div className="flex-container-text" style={{ width: 250 }}><h3>Importe Acumulado {partialPrice}$</h3></div>
                     </div>
                     :
-                    <div className="flex-container-text centrar">
+                    <div className="flex-container-text centrar" style={{ width: 300 }}>
                         <div className="lessWidth">
                             <Link to={`/Cart`}>
-                                <button style={{ width: 200 }}
+                                <button style={{ width: 250 }}
                                     className="btn btn-success"><em>Controlar Pedido</em>
                                 </button>
                             </Link>
                         </div>
                         <div className="lessWidth">
-                            <button style={{ width: 200 }}
+                            <button style={{ width: 250 }}
                                 onClick={() => {
                                     remover()
                                 }}
@@ -93,12 +93,12 @@ const ItemCount = ({ item, order, onAdd }) => {
                         </div>
                         <div className="lessWidth">
                             <Link to={`/`}>
-                                <button style={{ width: 200 }}
+                                <button style={{ width: 250 }}
                                     className="btn btn-info"><em>Continuar Compra</em>
                                 </button>
                             </Link>
                         </div>
-                        <div className="flex-container-text" style={{ width: 200 }}>
+                        <div className="flex-container-text" style={{ width: 250 }}>
                             <h3>Porciones incorporadas al pedido</h3>
                         </div>
                     </div>
