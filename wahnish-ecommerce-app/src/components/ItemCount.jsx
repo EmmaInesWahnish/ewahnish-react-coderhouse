@@ -1,18 +1,23 @@
-import { useState } from "react";
+import { useState} from "react";
 import { useCartContext } from '../context/cartContext.js';
 import { Link } from "react-router-dom";
 import '../App.css';
 
-const ItemCount = ({ item, order, onAdd }) => {
-    const { isInCart, removeFromCart } = useCartContext();
+const ItemCount = ({ item, order }) => {
+    const { isInCart, setCartList, removeFromCart, addToCart } = useCartContext();
     let initialPrice = Number(order) * Number(item.precio);
     let porcionesRestantes = Number(item.porciones) - Number(order)
     const [quantity, setCount] = useState(Number(order));
     const [thePortions, setPortion] = useState(Number(porcionesRestantes));
     const [partialPrice, setPrice] = useState(Number(initialPrice));
+
     let c = quantity;
     let d = thePortions;
     let procedo = (isInCart(item.id)) ? false : true;
+
+    const onAdd = (cant) => {
+        addToCart({ ...item, cantidad: cant });
+    }
 
     const increment = () => {
         if (procedo) {
@@ -45,7 +50,7 @@ const ItemCount = ({ item, order, onAdd }) => {
 
     const remover = () => {
         if (!procedo) {
-            removeFromCart(item.id)
+            removeFromCart(item.id);
         }
     }
 

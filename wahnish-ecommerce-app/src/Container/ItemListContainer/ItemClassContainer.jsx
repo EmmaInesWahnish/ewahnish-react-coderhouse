@@ -3,7 +3,6 @@ import { onSnapshot, collection, getDocs, getDoc, limit, query, where, setDoc, d
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import '../../App.css';
-import getFetch from '../../helpers/getFetch.js';
 import ItemList from '../../components/ItemList.jsx';
 import Greeting from '../../components/Greeting.jsx';
 import Spinner from '../../components/Spinner.jsx';
@@ -13,20 +12,6 @@ const ItemListContainer = () => {
     const [dishes, setDishes] = useState([]);
     const [bool, setBoolean] = useState(true);
     const {id} = useParams();
-
-    {/*useEffect(() => {
-        if (id) {
-        getFetch()
-            .then(response => setDishes(response.filter(d => d.clase === id)))
-            .catch((err) => console.log(err))
-            .finally(() => setBoolean(() => false))
-        } else {
-            getFetch()
-            .then((response) => setDishes(() => response))
-            .catch((err) => console.log(err))
-            .finally(() => setBoolean(() => false))
-        }
-    }, [id]);*/}
 
     useEffect(() => {
         const queryCollection = collection(db, "items");

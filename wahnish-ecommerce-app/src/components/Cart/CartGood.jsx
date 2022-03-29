@@ -1,9 +1,13 @@
 import { useCartContext } from "../../context/cartContext"
 import { Link } from "react-router-dom";
+import React, { useState } from "react";
+
+import FormModal from "../../components/modal/FormModal.jsx";
 
 
 const Cart = () => {
     const { cartList, vaciarCarrito, finalizarCompra, removeFromCart } = useCartContext();
+    const [isOpen, setIsOpen] = useState(false);
     let importeTotal = 0;
     cartList.forEach(calculateTotalPrice);
     function calculateTotalPrice(element) {
@@ -11,6 +15,18 @@ const Cart = () => {
     }
 
     const hayItems = (cartList.length > 0) ? true : false;
+
+    function emptying() {
+        vaciarCarrito()
+        localStorage.removeItem("pedido")
+    }
+
+    function provisory(){
+        setIsOpen(true);
+        finalizarCompra();
+        localStorage.remove("pedido");
+    }
+
 
     return (
         <>
@@ -43,13 +59,13 @@ const Cart = () => {
                                         <td>{item.precio}</td>
                                         <td>{item.cantidad}</td>
                                         <td>{item.precio * item.cantidad}</td>
-                                        <td><button className="roundButton" onClick={() => removeFromCart(item.id)}><i class="far fa-dot-circle"></i></button></td>
+                                        <td><button className="roundButton" onClick={() => removeFromCart(item.id)}><i className="far fa-dot-circle"></i></button></td>
                                     </tr>)}
                                 </tbody>
                             </table>
                             <div className="m-3">
-                                <h3>Importe Total </h3>
-                                <h3>{importeTotal}</h3>
+                                <h4>Importe Total </h4>
+                                <h4>{importeTotal}</h4>
                             </div>
                         </div>
                         <div>
@@ -60,16 +76,26 @@ const Cart = () => {
                                 {item.id}
                             </option>)}
                             </select>*/}
-                            <button className="btn btn-danger btn-lg button m-3 " onClick={vaciarCarrito}>Cancelar la Compra</button>
-                            <button className="btn btn-success btn-lg button m-3 " onClick={finalizarCompra}>Finalizar la Compra</button>
+                        <Link to={`/`}>
+                                <button className="btn btn-info btn-lg button m-5" style={{ width: 200 }}>Continuar compra</button>
+                        </Link>
+
+                            <button className="btn btn-danger btn-lg button m-3 " onClick={emptying}>Cancelar la Compra</button>
+                            <button className="btn btn-success btn-lg button m-3 " onClick={provisory}>Finalizar la Compra</button>
+                            {isOpen && <FormModal setIsOpen={setIsOpen} />}
                         </div>
                     </div>
                     :
-                    <Link to={`/`}>
+                    <>
                         <div className="asBody m-5">
                             <h2 className="centrar">El pedido esta vacio</h2>
                         </div>
-                    </Link>
+                        <Link to={`/`}>
+                            <div className="centrar">
+                                <button className="btn btn-info btn-lg button m-5" style={{ width: 200 }}>Comprar</button>
+                            </div>
+                        </Link>
+                    </>
             }
         </>
     )

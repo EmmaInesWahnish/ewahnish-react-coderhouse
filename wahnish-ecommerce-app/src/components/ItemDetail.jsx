@@ -1,16 +1,9 @@
 import '../App.css';
 import ItemCount from './ItemCount.jsx'
 import { Link } from "react-router-dom";
-import { useCartContext } from '../context/cartContext.js';
 import { useParams } from "react-router-dom";
 const ItemDetail = ({ item }) => {
   let order = 0;
-
-  const { addToCart } = useCartContext();
-
-  const onAdd = (cant, acum) => {
-    addToCart({ ...item, cantidad: cant, acumulado: acum });
-  }
 
   const { id } = useParams();
   const isDetail = (id === item.id) ? true : false;
@@ -26,7 +19,7 @@ const ItemDetail = ({ item }) => {
       </div>
     </Link>
     <div className="card-body centrar">
-      <ItemCount item={item} order={order} onAdd={onAdd} />
+      <ItemCount item={item} order={order} />
     </div>
     <div className="centrar">
       {
