@@ -76,7 +76,7 @@ const Cart = () => {
                             </option>)}
                             </select>*/}
                         <Link to={`/`}>
-                                <button className="btn btn-info btn-lg button m-5" style={{ width: 200 }}>Continuar compra</button>
+                                <button className="btn btn-info btn-lg button m-3" style={{ width: 200 }}>Continuar compra</button>
                         </Link>
 
                             <button className="btn btn-danger btn-lg button m-3 " onClick={emptying}>Cancelar la Compra</button>
