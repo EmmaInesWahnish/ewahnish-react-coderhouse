@@ -58,7 +58,7 @@ const Cart = () => {
                                         <td>{item.precio}</td>
                                         <td>{item.cantidad}</td>
                                         <td>{item.precio * item.cantidad}</td>
-                                        <td><button className="roundButton" onClick={() => removeFromCart(item.id)}><i className="far fa-dot-circle"></i></button></td>
+                                        <td><button onClick={() => removeFromCart(item.id)}><i className="far fa-dot-circle brick"></i></button></td>
                                     </tr>)}
                                 </tbody>
                             </table>
