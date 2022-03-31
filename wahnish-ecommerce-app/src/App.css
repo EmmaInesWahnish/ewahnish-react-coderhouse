@@ -184,13 +184,28 @@ h3 {
   justify-self: center;
 }
 
-.flex-container-buttons {
+.flex-container-buttons{
   justify-self: center;
   justify-items: center;
   display: flex;
   flex-wrap: nowrap;
   border-style: groove;
   justify-content: space-between;
+}
+
+.flex-container-nav{
+  flex-direction: row;
+  justify-self: center;
+  justify-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 900px) {
+  .flex-container-nav {
+    flex-direction: column;
+  }
 }
 
 .flex-item {
@@ -285,4 +300,8 @@ button {
   border-radius: 50%;
   width: 30px;
   height:30px;
+}
+
+.green {
+  color: green;
 }

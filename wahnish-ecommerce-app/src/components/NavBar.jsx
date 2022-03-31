@@ -10,21 +10,21 @@ const NavBar = () => {
   return (
     <>
       <Container className="bg-warning">
-        <div className="d-flex justify-content-around align-items-center bg-warning m-auto">
-          <NavLink to="/" id="logo" className="pointer navbar-brand-bg bg-warning logo">
-            <Logo />
-          </NavLink>
-          <Navbar className="me-auto navbar navbar-expand-sm bg-warning asBody px-5 m-0">
-            <NavLink to="categoria/plato"><button className="btn btn-warning btn-lg button"><strong>Platos</strong></button></NavLink>
-            <NavLink to="categoria/postre"><button className="btn btn-warning btn-lg button"><strong>Postres</strong></button></NavLink>
-            <NavLink to="categoria/desayuno"><button className="btn btn-warning btn-lg button"><strong>Desayunos</strong></button></NavLink>
-            <NavLink to="clase/general"><button className="btn btn-warning btn-lg button"><strong>Generales</strong></button></NavLink>
-            <NavLink to="clase/infantil"><button className="btn btn-warning btn-lg button"><strong>Infantiles</strong></button></NavLink>
-            <NavLink to="/test"><button className="btn btn-warning btn-lg button"><strong><i className="fas fa-cog"></i></strong></button></NavLink>
+        <div className="flex-container-nav bg-warning m-auto">
+          <Navbar className="bg-warning flex-container-nav px-5 m-0">
+                <NavLink to="/" id="logo" className="nav-link pointer bg-warning">
+                  <Logo />
+                </NavLink>
+                <NavLink to="categoria/plato"><button className="nav-link pointer btn btn-warning btn-lg button"><strong>Platos</strong></button></NavLink>
+                <NavLink to="categoria/postre"><button className="nav-link pointer btn btn-warning btn-lg button"><strong>Postres</strong></button></NavLink>
+                <NavLink to="categoria/desayuno"><button className="nav-link pointer btn btn-warning btn-lg button"><strong>Desayunos</strong></button></NavLink>
+                <NavLink to="clase/general"><button className="nav-link pointer btn btn-warning btn-lg button"><strong>Generales</strong></button></NavLink>
+                <NavLink to="clase/infantil"><button className="nav-link pointer btn btn-warning btn-lg button"><strong>Infantiles</strong></button></NavLink>
+                <NavLink to="/test"><button className="nav-link pointer nav-item btn btn-warning btn-lg button"><strong><i className="fas fa-cog"></i></strong></button></NavLink>
+                <NavLink to="cart" className="nav-link pointer asBody bg-warning  cart" id="confirmar">
+                  <Widget />
+                </NavLink>
           </Navbar>
-          <NavLink to="cart" className="pointer nav-link asBody  cart" id="confirmar">
-            <Widget />
-          </NavLink>
         </div>
       </Container>
     </>

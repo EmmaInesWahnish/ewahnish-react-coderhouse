@@ -1,7 +1,7 @@
 import '../App.css';
 const Logo=()=> {
   return (
-    <i className="fas fa-utensils"></i>
+    <i className="fas fa-utensils logo"></i>
     );
 }
 
