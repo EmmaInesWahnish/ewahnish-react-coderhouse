@@ -23,7 +23,7 @@ const Cart = () => {
 
     function provisory(){
         finalizarCompra();
-        localStorage.remove("pedido");
+        localStorage.removeItem("pedido");
     }
 
 
