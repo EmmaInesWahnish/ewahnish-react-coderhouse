@@ -180,8 +180,8 @@ const platos = [
 ]
 
 
-const getItem = (identificacion) => {
-    const dish = platos.find(element => element.id === identificacion);
+const getItem = (identification) => {
+    const dish = platos.find(element => element.id === identification);
     return (
         new Promise(function (resolve, reject) {
             setTimeout(function () { }, 2000);

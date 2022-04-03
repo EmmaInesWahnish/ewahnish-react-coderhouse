@@ -240,7 +240,7 @@ h3 {
   align-self: center;
 }
 
-.centrar {
+.center {
   margin: auto;
   max-width: 280px;
 }
@@ -309,7 +309,7 @@ button {
   width:140px;
 }
 
-.producto {
+.product {
   width:300px;
   align-items: center;
   border-style:ridge;

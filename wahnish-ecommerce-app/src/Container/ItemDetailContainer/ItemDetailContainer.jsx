@@ -6,17 +6,17 @@ import ItemDetail from '../../components/ItemDetail.jsx';
 import Spinner from '../../components/Spinner.jsx';
 
 
-const ItemDetailContainer = ({ identificacion }) => {
+const ItemDetailContainer = ({ identification }) => {
     const [bool, setBoolean] = useState(true);
     const [dish, setOneDish] = useState({});
 
     useEffect(() => {
-        const queryDoc = doc(db, 'items', identificacion)
+        const queryDoc = doc(db, 'items', identification)
         getDoc(queryDoc)
             .then(resp => setOneDish({ id: resp.id, ...resp.data() }))
             .catch((err) => console.log(err))
             .finally(() => setBoolean(() => false))
-    }, [identificacion])
+    }, [identification])
 
 
     if (bool) {

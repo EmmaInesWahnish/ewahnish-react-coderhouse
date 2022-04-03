@@ -5,8 +5,8 @@ import OneItem from '../../components/OneItem.jsx';
 const ItemListContainer = () => {
     const { id } = useParams();
     return (
-        <div className="asBody centrar">
-            <OneItem identificacion={id} />
+        <div className="asBody center">
+            <OneItem identification={id} />
         </div>
     );
 }

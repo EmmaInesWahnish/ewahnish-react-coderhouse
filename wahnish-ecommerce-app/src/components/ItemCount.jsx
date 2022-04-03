@@ -69,7 +69,7 @@ const ItemCount = ({ item, order }) => {
                         <div className="lessWidth">
                             <button style={{ width: 250 }}
                                 onClick={() => {
-                                    onAdd(quantity, partialPrice)
+                                    onAdd(quantity)
                                 }}
                                 className="btn btn-primary"><em>Agregar al pedido</em>
                             </button>
@@ -78,7 +78,7 @@ const ItemCount = ({ item, order }) => {
                         <div className="flex-container-text" style={{ width: 250 }}><h3>Importe Acumulado {partialPrice}$</h3></div>
                     </div>
                     :
-                    <div className="flex-container-text centrar" style={{ width: 300 }}>
+                    <div className="flex-container-text center" style={{ width: 300 }}>
                         <div className="lessWidth">
                             <Link to={`/Cart`}>
                                 <button style={{ width: 250 }}

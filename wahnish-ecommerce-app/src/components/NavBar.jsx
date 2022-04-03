@@ -1,10 +1,8 @@
 import Widget from '../Widget/Widget.jsx';
 import Logo from '../Widget/Logo.jsx'
 import Container from 'react-bootstrap/Container'
-import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
-import NavDropdown from "react-bootstrap/NavDropdown"
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const muestro = false;

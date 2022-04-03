@@ -9,7 +9,7 @@ const ItemDetail = ({ item }) => {
   const isDetail = (id === item.id) ? true : false;
   return (<>
     <Link to={`/detail/${item.id}`}>
-      <div className="card-header centrar" style={{ width: 300 }}>
+      <div className="card-header center" style={{ width: 300 }}>
         <h3>{item.descripcion}</h3>
         <h3>p/porcion {item.precio}$</h3>
         <h3>{`${item.categoria} ${item.clase}`}</h3>
@@ -18,10 +18,10 @@ const ItemDetail = ({ item }) => {
         </div>
       </div>
     </Link>
-    <div className="card-body centrar">
+    <div className="card-body center">
       <ItemCount item={item} order={order} />
     </div>
-    <div className="centrar">
+    <div className="center">
       {
         !isDetail ?
           <></>
