@@ -1,8 +1,8 @@
 import '../App.css';
-const Greeting=({saludo})=> {
+const Greeting=({greeting})=> {
     return (
         <div className ="flex-container">
-            <h2>{saludo}</h2>
+            <h2>{greeting}</h2>
         </div>   
     );
 }

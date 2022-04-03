@@ -1,5 +1,5 @@
 import db from '../../firebase.config.js';
-import { onSnapshot, collection, getDocs, getDoc, limit, query, where, setDoc, doc, addDoc } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import '../../App.css';
@@ -8,7 +8,7 @@ import Greeting from '../../components/Greeting.jsx';
 import Spinner from '../../components/Spinner.jsx';
 
 const ItemListContainer = () => {
-    const saludo = "Bienvenidos!! Conozcan nuestros platos Internacionales!!"
+    const greeting = "Bienvenidos!! Conozcan nuestros platos Internacionales!!"
     const [dishes, setDishes] = useState([]);
     const [bool, setBoolean] = useState(true);
     const { id } = useParams();
@@ -40,7 +40,7 @@ const ItemListContainer = () => {
         return (
             <div>
                 <div className="flex-container">
-                    <Greeting saludo={saludo} />
+                    <Greeting greeting={greeting} />
                 </div>
                 <div className="flex-container-card py-10">
                     <ItemList item={dishes} />

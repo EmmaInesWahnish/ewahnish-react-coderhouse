@@ -1,5 +1,5 @@
 import db from '../../firebase.config.js';
-import { onSnapshot, collection, getDocs, getDoc, limit, query, where, setDoc, doc, addDoc } from 'firebase/firestore'
+import { getDoc, doc } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import '../../App.css';
 import ItemDetail from '../../components/ItemDetail.jsx';
