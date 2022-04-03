@@ -2,14 +2,9 @@ import '../App.css';
 import { useCartContext } from "../context/cartContext"
 
 const Widget = () => {
-  const { cartList } = useCartContext();
-  let porcionesTotales = 0;
-  let importeTotal = 0
-  cartList.forEach(calculateTotalPrice);
-  function calculateTotalPrice(element) {
-    importeTotal = importeTotal + (element.precio * element.cantidad);
-    porcionesTotales = porcionesTotales + element.cantidad;
-  }
+  const { cartList, sumaTotal, porcionesTodas } = useCartContext();
+  let porcionesTotales = porcionesTodas();
+  let importeTotal = sumaTotal();
 
   const hayItems = (cartList.length > 0) ? true : false;
 

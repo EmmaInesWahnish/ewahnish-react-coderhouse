@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import { useLocalStorage } from "../helpers/useLocalStorage.js"
 
 const CartContext = createContext([]);
@@ -6,6 +6,7 @@ const CartContext = createContext([]);
 export const useCartContext = () => useContext(CartContext);
 
 function CartContextProvider({ children }) {
+
     const [cartList, setCartList] = useLocalStorage("pedido", []);
 
     const isInCart = (identification) => {
@@ -18,13 +19,15 @@ function CartContextProvider({ children }) {
     }
 
     const addToCart = (item) => {
-        if (!isInCart(item.id)) {
-            setCartList([...cartList, item]);
-        }
-        else {
-            cartList.cantidad += item.cantidad;
-            alert("Item ya esta en el pedido, se suma la cantidad a la ya existente")
-            setCartList([...cartList])
+        setCartList([...cartList, item]);
+    }
+
+    const updateQuantity = (item) => {
+        const dish = cartList.find(element => element.id === item.id);
+        if (dish) {
+            const index = cartList.indexOf(dish);
+            cartList[index] = item;
+            setCartList([...cartList]);
         }
     }
 
@@ -33,18 +36,25 @@ function CartContextProvider({ children }) {
         if (dish) {
             const index = cartList.indexOf(dish)
             cartList.splice(index, 1);
-            alert("El item fue removido del pedido")
             setCartList([...cartList])
         }
     }
 
-    const vaciarCarrito = () => {
+    const emptyCart = () => {
         setCartList([]);
     }
 
-    const finalizarCompra = () => {
-        alert("Aca se insertara logica para adecuar stock y luego vaciar el carrito; por el momento solo se vacia el carrito sin actualizar stock")
+    const endPurchase = () => {
         setCartList([]);
+        localStorage.removeItem("pedido");
+    }
+
+    const sumaTotal = () => {
+        return cartList.reduce((acum, item) => acum = acum + (item.precio * item.cantidad), 0)
+    }
+
+    const porcionesTodas = () => {
+        return cartList.reduce((acum, item) => acum += item.cantidad, 0)
     }
 
     return (
@@ -52,10 +62,13 @@ function CartContextProvider({ children }) {
             cartList,
             setCartList,
             addToCart,
-            vaciarCarrito,
+            emptyCart,
             isInCart,
             removeFromCart,
-            finalizarCompra
+            sumaTotal,
+            porcionesTodas,
+            updateQuantity,
+            endPurchase
         }}>
             {children}
         </CartContext.Provider>

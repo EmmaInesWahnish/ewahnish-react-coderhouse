@@ -12,6 +12,7 @@ import Componente404 from './components/Componente404.jsx';
 import Cart from './components/Cart/Cart.jsx';
 import CartContextProvider from './context/cartContext.js';
 import LoadFirestore from './helpers/ItemsCRUD.js'
+import OrdersControl from './helpers/OrdersControl.js'
 
 function App() {
 
@@ -50,6 +51,10 @@ function App() {
           <Route
             path="/admin"
             element={<LoadFirestore />}
+          />
+          <Route
+            path="/control"
+            element={<OrdersControl />}
           />
           <Route path='/detail/:id' element={<ItemIdContainer />} />
           <Route path='/cart' element={<Cart />} />

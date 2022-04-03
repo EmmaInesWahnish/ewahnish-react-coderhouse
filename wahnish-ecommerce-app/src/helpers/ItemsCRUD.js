@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import db from '../firebase.config.js';
-import { onSnapshot, collection, setDoc, updateDoc, doc, addDoc, deleteDoc } from 'firebase/firestore'
+import { onSnapshot, collection, updateDoc, doc, addDoc, deleteDoc } from 'firebase/firestore'
 
 const LoadFirebase = () => {
     const [docus, setDocus] = useState([]);
@@ -83,14 +83,14 @@ const LoadFirebase = () => {
                     </thead>
                     <tbody>
                         {docus.map(item => <tr key={item.id + "CI"}>
-                            <td onClick={() => handleDuplicate(item)}>{item.id}</td>
+                            <td>{item.id}<i className="fas fa-clone purple" onClick={() => handleDuplicate(item)}></i></td>
                             <td>{item.categoria}</td>
                             <td>{item.clase}</td>
                             <td>{item.descripcion}</td>
                             <td>{item.calorias}</td>
-                            <td onClick={() => handleUpdatePorciones(item)}>{item.porciones}</td>
-                            <td onClick={() => handleUpdatePrice(item)}>{item.precio}</td>
-                            <td><button className="roundButton" onClick={() => handleDelete(item)}><i className="far fa-dot-circle brick" ></i></button></td>
+                            <td>{item.porciones}<i className="fas fa-pen-nib green" onClick={() => handleUpdatePorciones(item)}></i></td>
+                            <td>{item.precio}<i onClick={() => handleUpdatePrice(item)} className="fas fa-pen-nib green"></i></td>
+                            <td><button className="roundButton" onClick={() => handleDelete(item)}><i className="fas fa-trash-alt brick" ></i></button></td>
                         </tr>)}
                     </tbody>
                 </table>

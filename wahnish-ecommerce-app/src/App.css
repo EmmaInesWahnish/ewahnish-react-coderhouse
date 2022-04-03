@@ -193,6 +193,34 @@ h3 {
   justify-content: space-between;
 }
 
+.flex-modal-container{
+  justify-items: center;
+  width:60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+}
+
+.flex-modal-form{
+  justify-items: center;
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.flex-modal-buttons{
+  justify-items: center;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
 .flex-container-nav{
   flex-direction: row;
   justify-self: center;
@@ -308,4 +336,8 @@ button {
 
 .brick {
   color: firebrick;
+}
+
+.purple {
+  color: purple;
 }

@@ -6,26 +6,22 @@ import FormModal from "../../components/modal/FormModal.jsx";
 
 
 const Cart = () => {
-    const { cartList, vaciarCarrito, finalizarCompra, removeFromCart } = useCartContext();
+    const { cartList, emptyCart, updateQuantity, removeFromCart,sumaTotal } = useCartContext();
     const [isOpen, setIsOpen] = useState(false);
-    let importeTotal = 0;
-    cartList.forEach(calculateTotalPrice);
-    function calculateTotalPrice(element) {
-        importeTotal = importeTotal + (element.precio * element.cantidad);
-    }
+    let importeTotal = sumaTotal();
 
     const hayItems = (cartList.length > 0) ? true : false;
 
     function emptying() {
-        vaciarCarrito()
+        emptyCart()
         localStorage.removeItem("pedido")
     }
 
-    function provisory(){
-        finalizarCompra();
-        localStorage.removeItem("pedido");
+    function changeQuantity(item){
+        let nuevaCantidad = prompt("Nueva cantidad");
+        item.cantidad = nuevaCantidad;
+        updateQuantity(item)
     }
-
 
     return (
         <>
@@ -39,26 +35,24 @@ const Cart = () => {
                             <table id="items-table" className="table table-sm table-bordered table-striped">
                                 <thead>
                                     <tr id="topRow">
-                                        <th id="toppRow00">Identificacion</th>
                                         <th >Categoria</th>
                                         <th id="topRow01">Clase</th>
                                         <th id="topRow02">Descripcion</th>
                                         <th id="topRow03">Precio</th>
                                         <th id="topRow04">Cantidad</th>
-                                        <th id="topRow06">T.Parcial</th>
+                                        <th id="topRow05">T.Parcial</th>
                                         <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {cartList.map(item => <tr key={item.id + item.id}>
-                                        <td>{item.id}</td>
                                         <td>{item.categoria}</td>
                                         <td>{item.clase}</td>
                                         <td>{item.descripcion}</td>
                                         <td>{item.precio}</td>
-                                        <td>{item.cantidad}</td>
+                                        <td>{item.cantidad}<i className="fas fa-pen-nib green" onClick={() => changeQuantity(item)}></i></td>
                                         <td>{item.precio * item.cantidad}</td>
-                                        <td><button className="roundButton"onClick={() => removeFromCart(item.id)}><i className="far fa-dot-circle brick"></i></button></td>
+                                        <td><button className="roundButton"onClick={() => removeFromCart(item.id)}><i class="fas fa-trash-alt brick"></i></button></td>
                                     </tr>)}
                                 </tbody>
                             </table>
@@ -68,19 +62,12 @@ const Cart = () => {
                             </div>
                         </div>
                         <div>
-                            {/* <label className="btn-lg bg-warning m-3">Seleccionar Item a eliminar</label>
-                                <select id="mySelect" className="md-3 asBody" onChange={(e) => eliminarItem(e)} >
-                                <option>Opciones</option>
-                                {itemId.map(item => <option key={item.id + item.extra}>
-                                {item.id}
-                            </option>)}
-                            </select>*/}
                         <Link to={`/`}>
                                 <button className="btn btn-info btn-lg button m-3" style={{ width: 200 }}>Continuar compra</button>
                         </Link>
 
                             <button className="btn btn-danger btn-lg button m-3 " onClick={emptying}>Cancelar la Compra</button>
-                            <button className="btn btn-success btn-lg button m-3 " onClick={provisory}>Finalizar la Compra</button>
+                            <button className="btn btn-success btn-lg button m-3 " onClick={() => setIsOpen(true)}>Finalizar la Compra</button>
                             {isOpen && <FormModal setIsOpen={setIsOpen} />}
                         </div>
                     </div>

@@ -4,24 +4,22 @@ import { Link } from "react-router-dom";
 import '../App.css';
 
 const ItemCount = ({ item, order }) => {
-    const { isInCart, setCartList, removeFromCart, addToCart } = useCartContext();
+    const { isInCart, removeFromCart, addToCart } = useCartContext();
     let initialPrice = Number(order) * Number(item.precio);
     let porcionesRestantes = Number(item.porciones) - Number(order)
     const [quantity, setCount] = useState(Number(order));
     const [thePortions, setPortion] = useState(Number(porcionesRestantes));
     const [partialPrice, setPrice] = useState(Number(initialPrice));
 
-    let c = quantity;
-    let d = thePortions;
-    let procedo = (isInCart(item.id)) ? false : true;
+    let proceed = (isInCart(item.id)) ? false : true;
 
     const onAdd = (cant) => {
-        addToCart({ ...item, cantidad: cant });
+        (cant > 0) ? addToCart({ ...item, cantidad: cant }) : alert("Cantidad en cero");
     }
 
     const increment = () => {
-        if (procedo) {
-            if (d > 0) {
+        if (proceed) {
+            if (thePortions > 0) {
                 setCount(() => quantity + 1);
                 setPortion(() => thePortions - 1);
                 setPrice(() => partialPrice + Number(item.precio));
@@ -35,8 +33,8 @@ const ItemCount = ({ item, order }) => {
     };
 
     const decrement = () => {
-        if (procedo) {
-            if (c > 0) {
+        if (proceed) {
+            if (quantity > 0) {
                 setCount(() => quantity - 1);
                 setPortion(() => thePortions + 1);
                 setPrice(() => partialPrice - Number(item.precio));
@@ -48,8 +46,8 @@ const ItemCount = ({ item, order }) => {
         }
     };
 
-    const remover = () => {
-        if (!procedo) {
+    const removeThisItem = () => {
+        if (!proceed) {
             removeFromCart(item.id);
         }
     }
@@ -57,7 +55,7 @@ const ItemCount = ({ item, order }) => {
     return (
         <>
             {
-                procedo ?
+                proceed ?
                     <div className="flex-container-text" style={{ width: 300 }}>
                         <div className="flex-container-buttons  p-0 m-0" style={{ width: 250 }}>
                             <button
@@ -91,7 +89,7 @@ const ItemCount = ({ item, order }) => {
                         <div className="lessWidth">
                             <button style={{ width: 250 }}
                                 onClick={() => {
-                                    remover()
+                                    removeThisItem()
                                 }}
                                 className="btn btn-warning"><em>Remover Item</em>
                             </button>
