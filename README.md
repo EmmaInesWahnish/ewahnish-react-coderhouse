@@ -11,9 +11,25 @@ Se puede navegar en la web hosteada en el siguiente link: https://funny-praline-
 
 Si desea correr este proyecto clone el repositorio y ejecute npm install y luego npm start dentro de la carpeta wahnish-ecommerce-app
 
-#Tecnologia
+# Tecnologia
 
+<ul>
+  <li>node js</li>
+  <li>bootstrap</li>
+  <li>firebase</li>
+  <li>react</li>
+  <li>react-bootstrap</li>
+  <li>react-icons</li>
+  <li>react-router-dom</li>
+  <li>react-scripts</li>
+  <li>web-vitals</li>
+</ul>
 
+# Agradecimientos
+
+Agradezco a Coder House, al profesor Federico Osandón y a sus tutores por el conocimiento y la ayuda aportada
+
+<h3>Desarrollado por Emma Wahnish<h3>
 
 
 
