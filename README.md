@@ -3,8 +3,8 @@
 Esta aplicación ha sido desarrollada para ser presentada como proyecto correspondiente al curso React Js de Coder House.
 Esta aplicacion simula un delivery de comidas donde el cliente puede incluir en su pedido platos, desayunos y/o postres generales e infantiles entre las opciones ofrecidas.
 
-<video width="400" height="auto" controls>
-  <source src="./wahnish-ecommerce-app/src/assets/delivery.mp4" type="video/mp4">
+<video width=“400” height=“auto” controls>
+<source src="/wahnish-ecommerce-app/src/assets/delivery.mp4" type=“video/mp4”>
 </video>
 
 # Demo
