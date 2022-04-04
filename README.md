@@ -3,6 +3,8 @@
 Esta aplicación ha sido desarrollada para ser presentada como proyecto correspondiente al curso React Js de Coder House.
 Esta aplicacion simula un delivery de comidas donde el cliente puede incluir en su pedido platos, desayunos y/o postres generales e infantiles entre las opciones ofrecidas.
 
+[![Video explicatico]({})]({video-url} "Link Title")
+
 # Demo
 
 Se puede navegar en la web hosteada en el siguiente link: https://funny-praline-a09fc4.netlify.app
