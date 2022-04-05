@@ -6,7 +6,7 @@ import { collection, updateDoc, doc, addDoc, serverTimestamp } from 'firebase/fi
 import "../../App.css"
 import { omit } from 'lodash'
 
-const Modal = ({ setIsOpen }) => {
+const Modal = ({ setIsOpen,setIsThereId,setOrderId }) => {
   const { cartList, sumaTotal, endPurchase } = useCartContext();
   const [email, setEmail] = useState("");
   const [email1, setEmail1] = useState("");
@@ -60,7 +60,7 @@ const Modal = ({ setIsOpen }) => {
         ) {
           setErrors({
             ...errors,
-            email1: 'Los emails no coinciden'
+            email1: 'Ingrese un email valido'
           })
         } else {
 
@@ -173,7 +173,8 @@ const Modal = ({ setIsOpen }) => {
           price
         }
         const docRef = await addDoc(collectionRef, payload);
-        alert("Su orden nro " + docRef.id + " se genero con exito");
+        setIsThereId(true);
+        setOrderId(docRef.id);
       }
       handleAdd(userInfo, cartList);
       endPurchase();
