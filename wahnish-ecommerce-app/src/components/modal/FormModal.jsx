@@ -179,6 +179,9 @@ const Modal = ({ setIsOpen,setIsThereId,setOrderId }) => {
       handleAdd(userInfo, cartList);
       endPurchase();
     }
+    else {
+      alert("Por favor corrija la informacion. Los email deben coincidir")
+    }
   }
 
   return (
