@@ -23,6 +23,7 @@ Si desea correr este proyecto clone el repositorio y ejecute npm install y luego
   <li>react-icons</li>
   <li>react-router-dom</li>
   <li>react-scripts</li>
+  <li>react-paginate</li>
   <li>web-vitals</li>
 </ul>
 
