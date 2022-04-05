@@ -9,6 +9,7 @@ import { omit } from 'lodash'
 const Modal = ({ setIsOpen }) => {
   const { cartList, sumaTotal, endPurchase } = useCartContext();
   const [email, setEmail] = useState("");
+  const [email1, setEmail1] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [errors, setErrors] = useState({});
@@ -53,6 +54,22 @@ const Modal = ({ setIsOpen }) => {
         }
         break;
 
+      case 'email1':
+        if (
+          !new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(value)
+        ) {
+          setErrors({
+            ...errors,
+            email1: 'Los emails no coinciden'
+          })
+        } else {
+
+          let newObj = omit(errors, "email1");
+          setErrors(newObj);
+
+        }
+        break;
+
       case 'password':
         if (
           !new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/).test(value)
@@ -72,6 +89,7 @@ const Modal = ({ setIsOpen }) => {
       default:
         break;
     }
+
   }
 
   const handleChange = (e) => {
@@ -83,7 +101,10 @@ const Modal = ({ setIsOpen }) => {
     //Let's set these values in state
     switch (name) {
       case "email":
-        setEmail(e.target.value)
+        setEmail(e.target.value);
+        break;
+      case "email1":
+        setEmail1(e.target.value);
         break;
       case "phone":
         setPhone(e.target.value);
@@ -98,54 +119,65 @@ const Modal = ({ setIsOpen }) => {
   }
 
   const handleSubmit = () => {
-
-    const handleUpdate = async (element) => {
-      const id = element.id;
-      const porciones = element.porciones - element.cantidad;
-      const docRef = doc(db, "items", id);
-      const payload = {
-        porciones
+    let goSubmit = true;
+    function lastControl() {
+      goSubmit=true;
+      if (email1 !== email || errors.length>0) {
+        goSubmit = false;
       }
-      updateDoc(docRef, payload);
     }
 
-    let importeTotal = sumaTotal();
+    lastControl();
 
-    cartList.forEach((element) => {
-      handleUpdate(element)
-    });
+    if (goSubmit === true) {
 
-    const userInfo = {
-      email: email,
-      phone: phone,
-      address: address
-    }
-
-    const handleAdd = async (userInfo, cartList) => {
-      const date = serverTimestamp();
-      const buyer = userInfo;
-      const items = cartList.map((element) => {
-        let item = {
-          id: element.id,
-          title: element.descripcion,
-          price: element.precio
+      const handleUpdate = async (element) => {
+        const id = element.id;
+        const porciones = element.porciones - element.cantidad;
+        const docRef = doc(db, "items", id);
+        const payload = {
+          porciones
         }
-        return item;
-      });
-      const price = importeTotal;
-      const collectionRef = collection(db, "orders");
-      const payload = {
-        date,
-        buyer,
-        items,
-        price
+        updateDoc(docRef, payload);
       }
-      const docRef = await addDoc(collectionRef, payload);
-      alert("Su orden nro " + docRef.id + " se genero con exito");
-    }
 
-    handleAdd(userInfo, cartList);
-    endPurchase();
+      let importeTotal = sumaTotal();
+
+      cartList.forEach((element) => {
+        handleUpdate(element)
+      });
+
+      const userInfo = {
+        email: email,
+        phone: phone,
+        address: address
+      }
+
+      const handleAdd = async (userInfo, cartList) => {
+        const date = serverTimestamp();
+        const buyer = userInfo;
+        const items = cartList.map((element) => {
+          let item = {
+            id: element.id,
+            title: element.descripcion,
+            price: element.precio
+          }
+          return item;
+        });
+        const price = importeTotal;
+        const collectionRef = collection(db, "orders");
+        const payload = {
+          date,
+          buyer,
+          items,
+          price
+        }
+        const docRef = await addDoc(collectionRef, payload);
+        alert("Su orden nro " + docRef.id + " se genero con exito");
+      }
+      handleAdd(userInfo, cartList);
+      endPurchase();
+    }
   }
 
   return (
@@ -172,6 +204,18 @@ const Modal = ({ setIsOpen }) => {
               }
             </div>
             <div className="flex-modal-form m-2">
+              <label htmlFor="email1">Repita Email</label>
+              <input
+                name="email1"
+                type="text"
+                value={email1}
+                onChange={handleChange}
+              />
+              {
+                errors.email1 && <h5>{errors.email1}</h5>
+              }
+            </div>
+            <div className="flex-modal-form m-2">
               <label htmlFor="phone">Telefono</label>
               <input
                 name="phone"
@@ -187,7 +231,7 @@ const Modal = ({ setIsOpen }) => {
               <label htmlFor="address">Direccion</label>
               <input
                 name="address"
-                type="email"
+                type="text"
                 value={address}
                 onChange={handleChange}
               />

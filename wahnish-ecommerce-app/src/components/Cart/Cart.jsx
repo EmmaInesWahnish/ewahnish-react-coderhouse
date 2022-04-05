@@ -52,7 +52,7 @@ const Cart = () => {
                                         <td>{item.precio}</td>
                                         <td>{item.cantidad}<i className="fas fa-pen-nib green" onClick={() => changeQuantity(item)}></i></td>
                                         <td>{item.precio * item.cantidad}</td>
-                                        <td><button className="roundButton"onClick={() => removeFromCart(item.id)}><i class="fas fa-trash-alt brick"></i></button></td>
+                                        <td><button className="roundButton"onClick={() => removeFromCart(item.id)}><i className="fas fa-trash-alt brick"></i></button></td>
                                     </tr>)}
                                 </tbody>
                             </table>
