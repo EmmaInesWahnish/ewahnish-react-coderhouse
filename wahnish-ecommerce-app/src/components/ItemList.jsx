@@ -1,6 +1,6 @@
 import '../App.css';
 import { memo } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactPaginate from 'react-paginate';
 import Item from './Item.jsx';
 const ItemList = ({ item }) => {
@@ -8,10 +8,14 @@ const ItemList = ({ item }) => {
     const changePage = ({ selected }) => {
         setPageNumber(selected);
     }
-
     const itemsPerPage = 3;
     const pagesVisited = pageNumber * itemsPerPage;
     const pageCount = Math.ceil(item.length / itemsPerPage)
+
+    useEffect(() => {
+        setPageNumber(0);
+      }, []);
+    
 
     const displayItems =
         item.slice(pagesVisited, pagesVisited + itemsPerPage)
@@ -24,10 +28,17 @@ const ItemList = ({ item }) => {
             })
 
     return (<>
-        {displayItems}
+        <div className="joker">
+            <p>.</p>
+        </div>
         <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
+            initialPage={0}
+            breakLabel="..."
+            disableInitialCallback={false}
+            selectedPageRel={null}
+            renderOnZeroPageCount={null}
+            previousLabel={"< Previous"}
+            nextLabel={"Next >"}
             pageCount={pageCount}
             onPageChange={changePage}
             containerClassName={"paginationBttns"}
@@ -36,6 +47,10 @@ const ItemList = ({ item }) => {
             disabledClassName={"paginationDisabled"}
             activeClassName={"paginationActive"}
         />
+        <div className="joker">
+            <p>.</p>
+        </div>
+        {displayItems}
     </>);
 }
 

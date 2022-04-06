@@ -59,8 +59,7 @@ const Cart = () => {
                                 </tbody>
                             </table>
                             <div className="m-3">
-                                <h4>Importe Total </h4>
-                                <h4>{importeTotal}</h4>
+                                <h3>Importe Total {importeTotal} </h3>
                             </div>
                         </div>
                         <>
@@ -82,13 +81,13 @@ const Cart = () => {
                     :
                     <>
                         <div className="asBody m-5">
-                            <h2 className="center">El pedido esta vacio</h2>
+                            <h3 className="center">El pedido esta vacio</h3>
                         </div>
                         <>
                         {
                             isThereId?
                             <div className="asBody">
-                                <h3>Su orden Nro {orderId} ha sido generada con exito</h3>
+                                <h3 className="center"><i className="fas fa-check-circle"></i> Su orden Nro {orderId} ha sido generada con exito</h3>
                             </div>
                             :
                             <></>
