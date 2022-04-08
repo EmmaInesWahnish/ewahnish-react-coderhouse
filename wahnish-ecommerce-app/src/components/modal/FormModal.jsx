@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 import { useCartContext } from "../../context/cartContext";
 import db from '../../firebase.config.js';
-import { collection, updateDoc, doc, addDoc, serverTimestamp } from 'firebase/firestore'
-import "../../App.css"
-import { omit } from 'lodash'
+import { collection, updateDoc, doc, addDoc, serverTimestamp } from 'firebase/firestore';
+import "../../App.css";
+import { omit } from 'lodash';
 
 const Modal = ({ setIsOpen,setIsThereId,setOrderId }) => {
   const { cartList, sumaTotal, endPurchase } = useCartContext();
@@ -122,7 +122,7 @@ const Modal = ({ setIsOpen,setIsThereId,setOrderId }) => {
     let goSubmit = true;
     function lastControl() {
       goSubmit=true;
-      if (email1 !== email || errors.length>0) {
+      if (email1 !== email || errors.length>0 || email.length === 0) {
         goSubmit = false;
       }
     }
@@ -180,7 +180,7 @@ const Modal = ({ setIsOpen,setIsThereId,setOrderId }) => {
       endPurchase();
     }
     else {
-      alert("Por favor corrija la informacion. Los email deben coincidir")
+      alert("Por favor corrija la informacion. El formulario no puede estar en blanco. Los email deben coincidir")
     }
   }
 

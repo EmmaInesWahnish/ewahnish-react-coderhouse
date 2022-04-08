@@ -19,10 +19,25 @@ const Cart = () => {
         localStorage.removeItem("pedido")
     }
 
-    function changeQuantity(item) {
-        let nuevaCantidad = prompt("Nueva cantidad");
-        item.cantidad = nuevaCantidad;
-        updateQuantity(item)
+    function addOne(item) {
+        let remainingPortions = Number(item.porciones) - Number(item.cantidad)
+        if (remainingPortions > 0) {
+            item.cantidad++;
+            updateQuantity(item)
+        }
+        else {
+            alert("No quedan mas porciones disponibles")
+        }
+    }
+
+    function subtractOne(item) {
+        if (item.cantidad > 1) {
+            item.cantidad--;
+            updateQuantity(item)
+        }
+        else {
+            alert("Queda un solo item en el pedido")
+        }
     }
 
     return (
@@ -52,7 +67,7 @@ const Cart = () => {
                                         <td>{item.clase}</td>
                                         <td>{item.descripcion}</td>
                                         <td>{item.precio}</td>
-                                        <td>{item.cantidad}<i className="fas fa-pen-nib green" onClick={() => changeQuantity(item)}></i></td>
+                                        <td>{item.cantidad}<i className="fas fa-plus green" onClick={() => addOne(item)}></i>/<i className="fas fa-minus brick" onClick={() => subtractOne(item)}></i></td>
                                         <td>{item.precio * item.cantidad}</td>
                                         <td><button className="roundButton" onClick={() => removeFromCart(item.id)}><i className="fas fa-trash-alt brick"></i></button></td>
                                     </tr>)}
@@ -65,16 +80,16 @@ const Cart = () => {
                         <>
                             {
                                 !isOpen ?
-                                <div>
-                                    <Link to={`/`}>
-                                        <button className="btn btn-info btn-lg button m-3" style={{ width: 200 }}>Continuar compra</button>
-                                    </Link>
+                                    <div>
+                                        <Link to={`/`}>
+                                            <button className="btn btn-info btn-lg button m-3" style={{ width: 200 }}>Continuar compra</button>
+                                        </Link>
 
-                                    <button className="btn btn-danger btn-lg button m-3 " onClick={emptying}>Cancelar la Compra</button>
-                                    <button className="btn btn-success btn-lg button m-3 " onClick={() => setIsOpen(true)}>Finalizar la Compra</button>
-                                </div>
-                                :
-                                <FormModal setIsOpen={setIsOpen} setIsThereId={setIsThereId} setOrderId ={setOrderId} />
+                                        <button className="btn btn-danger btn-lg button m-3 " onClick={emptying}>Cancelar la Compra</button>
+                                        <button className="btn btn-success btn-lg button m-3 " onClick={() => setIsOpen(true)}>Finalizar la Compra</button>
+                                    </div>
+                                    :
+                                    <FormModal setIsOpen={setIsOpen} setIsThereId={setIsThereId} setOrderId={setOrderId} />
                             }
                         </>
                     </div>
@@ -84,14 +99,14 @@ const Cart = () => {
                             <h3 className="center">El pedido esta vacio</h3>
                         </div>
                         <>
-                        {
-                            isThereId?
-                            <div className="asBody">
-                                <h3 className="center"><i className="fas fa-check-circle"></i> Su orden Nro {orderId} ha sido generada con exito</h3>
-                            </div>
-                            :
-                            <></>
-                        }
+                            {
+                                isThereId ?
+                                    <div className="asBody">
+                                        <h3 className="center"><i className="fas fa-check-circle"></i> Su orden Nro {orderId} ha sido generada con exito</h3>
+                                    </div>
+                                    :
+                                    <></>
+                            }
                         </>
                         <Link to={`/`}>
                             <div className="center">

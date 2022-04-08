@@ -53,8 +53,8 @@ function CartContextProvider({ children }) {
         return cartList.reduce((acum, item) => acum = acum + (item.precio * item.cantidad), 0)
     }
 
-    const porcionesTodas = () => {
-        return cartList.reduce((acum, item) => acum += item.cantidad, 0)
+    const totalPortions = () => {
+        return cartList.reduce((acum, item) => acum += Number(item.cantidad), 0)
     }
 
     return (
@@ -66,7 +66,7 @@ function CartContextProvider({ children }) {
             isInCart,
             removeFromCart,
             sumaTotal,
-            porcionesTodas,
+            totalPortions,
             updateQuantity,
             endPurchase
         }}>

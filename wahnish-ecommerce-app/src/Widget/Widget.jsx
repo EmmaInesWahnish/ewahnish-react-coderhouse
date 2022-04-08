@@ -2,8 +2,8 @@ import '../App.css';
 import { useCartContext } from "../context/cartContext"
 
 const Widget = () => {
-  const { cartList, sumaTotal, porcionesTodas } = useCartContext();
-  let porcionesTotales = porcionesTodas();
+  const { cartList, sumaTotal, totalPortions } = useCartContext();
+  let porcionesTotales = totalPortions();
   let importeTotal = sumaTotal();
 
   const hayItems = (cartList.length > 0) ? true : false;
